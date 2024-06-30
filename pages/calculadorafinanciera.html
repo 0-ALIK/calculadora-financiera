@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid grid-cols-2 m-10 ">
+        <form class="w-[600px] m-10 grid gap-3" id="id_form" action="" method="post">
+            <label class="input input-bordered flex items-center gap-2">
+                <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo">
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <input class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes">
+            </label>
+            <label class="input input-bordered flex items-center gap-2">
+                <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo">
+            </label>
+    
+            <select name="name_frec_pago" id="id_frec_pago">
+                <option value="52" >Semanal</option>
+                <option value="26">Quincenal</option>
+                <option value="12">Mensual</option>
+                <option value="4">Trimestral</option>
+                <option value="1" selected>Anual</option>
+              </select>
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="chart" class="w-[600px]">
+    
+        </div>
+    </div>
+    
+    <div>
+
+        <section class="overflow-x-auto w-[600px] m-auto">
+            <table class="table">
+              <!-- head -->
+              <thead>
+                <tr>
+                  <th>Periodo</th>
+                  <th>pago</th>
+                  <th>interes</th>
+                  <th>capital</th>
+                  <th>saldo</th>
+                </tr>
+              </thead>
+              <tbody id="id_result">
+                
+              </tbody>
+            </table>
+          </section>
+
+    </div>
+    
+
+    <p id="id_result"></p>
+    <script src="../scripts/calculadorfinanciera.js" type="module"></script>
+
+</body>
+</html>
