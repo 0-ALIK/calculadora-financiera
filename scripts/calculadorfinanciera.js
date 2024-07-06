@@ -13,6 +13,9 @@ form.addEventListener("submit", (event) => {
 });
 
 function tablaAmortizacion(monto_prestamo, tasa_interes, plazo_prestamo, frec_pago) {
+
+    document.getElementById('chart').innerHTML = "";
+
     const cant_pagos = plazo_prestamo * frec_pago;
     const tasa_interes_capitalizada = tasa_interes / 100 / frec_pago;
     let capital = [];
@@ -40,14 +43,14 @@ function tablaAmortizacion(monto_prestamo, tasa_interes, plazo_prestamo, frec_pa
             saldo = 0; // Aseguramos que el saldo final sea 0 en la última iteración
         }
           
-        
+        document.getElementById("id_monto_prestamo_table").innerHTML = (`${monto_prestamo.toFixed(2)}`);
 
         document.getElementById("id_result").innerHTML += (`
             <tr>
             <th>${index + 1}</th>
             <td>${pago_periodico.toFixed(2)}</td>
             <td>${interes_periodico.toFixed(2)}</td>
-            <td>${capital_mensual.toFixed(2)}
+            <td>${capital_mensual.toFixed(2)}</td>
             <td>${saldo.toFixed(2)}</td>
             </tr>
             `);
@@ -68,9 +71,30 @@ function tablaAmortizacion(monto_prestamo, tasa_interes, plazo_prestamo, frec_pa
             name: 'Intereses',
             data: intereses.map(parseFloat)
         }],
-        xaxis: {
-            categories: periodos.map(String)
+        xaxis:{
+            categories: periodos.map(String),
+            labels:{
+                style:{
+                    colors: '#fff'
+                }
+            }
+        },
+        yaxis:{
+            labels:{
+                style:{
+                    colors: '#fff'
+                }
+            }
+        },
+        legend:{
+            labels:{
+                colors: '#fff'
+            }
+        },
+        title:{
+            text: 'Amortizaciòn de Prestamos',
         }
+        
       }
       
       var chart = new ApexCharts(document.querySelector("#chart"), options);

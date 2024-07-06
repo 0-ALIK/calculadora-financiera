@@ -1,58 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="synthwave">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="grid grid-cols-2 m-10 ">
-        <form class="w-[600px] m-10 grid gap-3" id="id_form" action="" method="post">
-            <label class="input input-bordered flex items-center gap-2">
-                <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo">
-            </label>
-            <label class="input input-bordered flex items-center gap-2">
-                <input class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes">
-            </label>
-            <label class="input input-bordered flex items-center gap-2">
-                <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo">
-            </label>
+    <nav>
+      <div class="navbar bg-base-100">
+          <div class="flex-1 ">
+            <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+          </div>
+          <div class="">
+            <ul class="menu menu-horizontal px-1 ml-20">
+              <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+              <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+            </ul>
+          </div>
+        </div> 
+    </nav>   
     
-            <select name="name_frec_pago" id="id_frec_pago">
-                <option value="52" >Semanal</option>
-                <option value="26">Quincenal</option>
-                <option value="12">Mensual</option>
-                <option value="4">Trimestral</option>
-                <option value="1" selected>Anual</option>
-              </select>
-            <button type="submit">Calcular</button>
-        </form>
-        <div id="chart" class="w-[600px]">
-    
+    <div class="flex flex-wrap gap-3  justify-center lg:m-10">
+      <div class="bg-[#1F2937] p-10 rounded-xl h-max-[400px] h-max w-[600px] ">
+        <section class="flex justify-start mb-5">
+          <div class="bg-[#1F2937]  rounded-xl w-12 h-12">
+            <img src="../assets/calculator.webp" alt="Imagen" width="40px">
+          </div>
+          <section>
+            <h1>Calculadora Financiera</h1>
+            <p>Este es un proyecto de prueba para la calculadora financiera</p>
+          </section>   
+        </section>
+        <form class="  grid gap-6" id="id_form" action="" method="post">
+          <label class="bg-[#374151] input input-bordered flex items-center gap-2">
+              <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo">
+          </label>
+          <label class="bg-[#374151] input input-bordered flex items-center gap-2">
+              <input class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes">
+          </label>
+          <label class="bg-[#374151] input input-bordered flex items-center gap-2">
+              <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo de Pago">
+          </label>
+          <div class="flex justify-between">
+            <select class="bg-[#374151] rounded-md p-2" name="name_frec_pago" id="id_frec_pago">
+              <option value="52" >Semanal</option>
+              <option value="26">Quincenal</option>
+              <option value="12" selected>Mensual</option>
+              <option value="4">Trimestral</option>
+              <option value="1">Anual</option>
+            </select>
+            <button class="text-white bg-[#5045E5] rounded-md w-64" type="submit">Calcular</button>
+          </div>
+          
+      </form>
+      </div>
+        
+        <div class="bg-[#1F2937]  rounded-xl">
+          <div id="chart" class="p-8 w-[900px]">
+            
+          </div>
         </div>
+        
     </div>
     
-    <div>
+    <div class="collapse justify-center collapse-arrow">
+      <input type="checkbox" />
+      <div class="collapse-title text-xl font-medium text-center bg-[#1F2937] rounded-md ">Tabla de Amortizacion</div>
+      <div class="collapse-content flex flex-wrap justify-center bg-[#1F2937] rounded-md">
+        <section class="  p-6 rounded-xl w-[600px] ">
+          <table  class="lg:table md:table-md sm:table-xs">
+            <!-- head -->
+            <thead>
+              <tr>
+                <th>Periodo</th>
+                <th>Pago <br> Mensual</th>
+                <th>Interes</th>
+                <th>Capital</th>
+                <th>Saldo <br> Pendiente</th>
+              </tr>
+            </thead>
+            <tr>
+              <th>0</th>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+              <td id="id_monto_prestamo_table"></td>
+              </tr>
+            <tbody id="id_result">
+              
+            </tbody>
+          </table>
+        </section>
 
-        <section class="overflow-x-auto w-[600px] m-auto">
-            <table class="table">
-              <!-- head -->
-              <thead>
-                <tr>
-                  <th>Periodo</th>
-                  <th>pago</th>
-                  <th>interes</th>
-                  <th>capital</th>
-                  <th>saldo</th>
-                </tr>
-              </thead>
-              <tbody id="id_result">
-                
-              </tbody>
-            </table>
-          </section>
-
+      </div>
     </div>
     
 
