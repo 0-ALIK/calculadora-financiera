@@ -2,55 +2,46 @@
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>activos</title>
+    <title>Activos Fijos Netos</title>
 </head>
 <body>
     <div class="flex flex-col gap-5 p-5 h-full ">
-        <h1 class="text-5xl font-bold p-3 text-blue-300">Activos fijos Netos</h1>
+        <div class="flex items-center gap-2">
+            <h1 class="text-5xl font-bold p-3 text-blue-300">Activos fijos Netos</h1>
+            <button onclick="cambiarDatos()" class="btn btn-xs btn-outline btn-primary btn-calcular-anos">
+                <p class="text-xs">Cambiar datos</p>
+            </button>
+        </div>
 
         <section class="flex gap-5 p-4 justify-center">
-            
             <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
-                <article class="flex gap-9 justify-evenly">
-                    <p class="text-3xl font-semibold text-gray-200">Mobiliario</p>
-                    <p class="text-3xl font-semibold text-gray-200">10,000</p>
-                </article>
 
-                <label class="input input-bordered bg input-primary input-lg bg-transparent/30 flex items-center gap-1">
-                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Activo</p>
-                    <input type="text" class="grow pl-2" placeholder="Añadir nuevo activo" />
-                    <button class="btn btn-secondary text-gray-50">Button</button>
+                <div class="lista-activos flex flex-col px-10 gap-4">
+                    <button class="btn">gfds</button>
 
-                </label>
+                </div>
+
+                <div class="flex gap-2">
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Activo</p>
+                        <input type="text" class="grow pl-2 input-nombre-activo" placeholder="Añadir nuevo activo" />
+                    </label>
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Precio</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" placeholder="$$$" />
+                        <button onclick="agregarActivo()" class="btn btn-secondary text-gray-50 btn-sm btn-agregar-activo">Añadir</button>
+                    </label>
+                </div>
             </div>
 
             <div class="flex flex-col justify-evenly bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
-                <h2 class="text-3xl font-bold text-gray-200">Valor total de los activos</h2>
-                <p  class="text-3xl font-bold text-gray-200 pl-8">28,000</p>
+                <h2 class="text-4xl font-bold text-gray-200">Valor total de los activos</h2>
+                <p class="text-4xl font-bold text-gray-200 pl-8 valor-total">0</p>
             </div>
         </section>
-
-        <section class="flex justify-center">
-            <div class="stats shadow">
-                <div class="stat place-items-center">
-                  <div class="stat-title">Downloads</div>
-                  <div class="stat-value">31K</div>
-                </div>
-              
-                <div class="stat place-items-center">
-                  <div class="stat-title">Users</div>
-                  <div class="stat-value text-secondary">4,200</div>
-                </div>
-              
-                <div class="stat place-items-center">
-                  <div class="stat-title">New Registers</div>
-                  <div class="stat-value">1,200</div>
-                </div>
-              </div>
-        </section>
     </div>
+<script src="../scripts/activosfijos.js"></script>
 </body>
 </html>
