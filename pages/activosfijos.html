@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="synthwave">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     
@@ -8,10 +8,49 @@
     <title>activos</title>
 </head>
 <body>
-    <div class="flex bg-gray-600">
-        <article class="text-xl">elemento </article>
-        <article>elemento 2 2</article>
+    <div class="flex flex-col gap-5 p-5 h-full ">
+        <h1 class="text-5xl font-bold p-3 text-blue-300">Activos fijos Netos</h1>
+
+        <section class="flex gap-5 p-4 justify-center">
+            
+            <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
+                <article class="flex gap-9 justify-evenly">
+                    <p class="text-3xl font-semibold text-gray-200">Mobiliario</p>
+                    <p class="text-3xl font-semibold text-gray-200">10,000</p>
+                </article>
+
+                <label class="input input-bordered bg input-primary input-lg bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Activo</p>
+                    <input type="text" class="grow pl-2" placeholder="Añadir nuevo activo" />
+                    <button class="btn btn-secondary text-gray-50">Button</button>
+
+                </label>
+            </div>
+
+            <div class="flex flex-col justify-evenly bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
+                <h2 class="text-3xl font-bold text-gray-200">Valor total de los activos</h2>
+                <p  class="text-3xl font-bold text-gray-200 pl-8">28,000</p>
+            </div>
+        </section>
+
+        <section class="flex justify-center">
+            <div class="stats shadow">
+                <div class="stat place-items-center">
+                  <div class="stat-title">Downloads</div>
+                  <div class="stat-value">31K</div>
+                </div>
+              
+                <div class="stat place-items-center">
+                  <div class="stat-title">Users</div>
+                  <div class="stat-value text-secondary">4,200</div>
+                </div>
+              
+                <div class="stat place-items-center">
+                  <div class="stat-title">New Registers</div>
+                  <div class="stat-value">1,200</div>
+                </div>
+              </div>
+        </section>
     </div>
-    <h4 class="text-blue-300 bg-black " >jola</h4>
 </body>
 </html>
