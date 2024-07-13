@@ -21,6 +21,13 @@ export const costos_operacion = [
     {descripcion: "Transporte", costo: 350.00}
 ];
 
+// total: 40000.00
+export const activos = [
+    {descripcion: "Mobiliario", costo: 10000.00},
+    {descripcion: "Equipos de oficina", costo: 5000.00},
+    {descripcion: "Vehiculo", costo: 25000.00}
+];
+
 export const ventas = [
         {
             "fecha": "01\/02\/2022",
