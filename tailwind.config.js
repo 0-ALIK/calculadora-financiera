@@ -5,6 +5,9 @@ module.exports = {
     fontFamily: {
       sans: ['Montserrat, sans-serif']
     },
+    backgroundImage: {
+      fondo: [ "url('/public/fondo.png')"]
+    },
     extend: {},
   },
   plugins: [
