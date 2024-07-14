@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Razones financieras</title>
+</head>
+<body>
+    <nav>
+        <div class="navbar bg-base-100">
+            <div class="flex-1 ">
+                <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+            </div>
+            <div class="">
+                <ul class="menu menu-horizontal px-1 ml-20">
+                    <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+                    <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+                    <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
+                    <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones financieras</a></li>
+                </ul>
+            </div>
+        </div> 
+    </nav> 
+    
+    <p class="text-4xl text-secondary font-bold"></p>
+    <main class="w-full xl:w-9/12 mx-auto">
+
+        <div role="tablist" class="tabs tabs-boxed mb-10">
+            <a role="tab" data-tab="razones_liquidez" class="tab tab-active">Razones de liquidez</a>
+            <a role="tab" data-tab="indices_actividad" class="tab">Índices de actividad</a>
+            <a role="tab" data-tab="razones_endeudamiento" class="tab">Razones de endeudamiento</a>
+            <a role="tab" data-tab="indices_rendimiento" class="tab">Índices de rendimiento</a>
+            <a role="tab" data-tab="razones_mercado" class="tab">Razones de mercado</a>
+        </div>
+
+        <section class="flex flex-col justify-center gap-5">
+
+            <div class="overflow-x-auto card bg-base-200 p-5">
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Razón</th>
+                      <th>Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody id="contenido">
+
+                  </tbody>
+                </table>
+            </div>
+
+        </section>
+        
+    </main>
+
+
+    <script src="../scripts/razonesFinancieras.js" type="module"></script>
+</body>
+</html>
