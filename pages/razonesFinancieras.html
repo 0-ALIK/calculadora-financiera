@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Razones financieras</title>
 </head>
 <body>
@@ -24,6 +23,7 @@
         </div> 
     </nav> 
     
+    <p class="text-4xl text-secondary font-bold"></p>
     <main class="w-full xl:w-9/12 mx-auto">
 
         <div role="tablist" class="tabs tabs-boxed mb-10">
@@ -34,9 +34,23 @@
             <a role="tab" data-tab="razones_mercado" class="tab">Razones de mercado</a>
         </div>
 
-        <section id="contenido" class="flex flex-col justify-center gap-5">
+        <section class="flex flex-col justify-center gap-5">
 
-           
+            <div class="overflow-x-auto card bg-base-200 p-5">
+                <table class="table">
+                  <!-- head -->
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Razón</th>
+                      <th>Valor</th>
+                    </tr>
+                  </thead>
+                  <tbody id="contenido">
+
+                  </tbody>
+                </table>
+            </div>
 
         </section>
         
