@@ -24,18 +24,18 @@ const inventariodata = obtenerLocalStorage('inventario');
     
    
    // Calcular las ventas
-const calcularVentas = () => {
-    const ventasdata = obtenerLocalStorage('ventas') || [];
-    let ventasTotal = 0;
+    const calcularVentas = () => {
+        const ventasdata = obtenerLocalStorage('ventas') || [];
+        let ventasTotal = 0;
 
-    ventas.forEach(venta => {
-        if (venta && venta.monto) {
-            ventasTotal += venta.monto;
-        }
-    });
+        ventas.forEach(venta => {
+            if (venta && venta.monto) {
+                ventasTotal += venta.monto;
+            }
+        });
 
-    return ventasTotal;
-};
+        return ventasTotal;
+    };
 
 // Función para mostrar los valores en el HTML
 const mostrarValoresEnHTML = () => {
