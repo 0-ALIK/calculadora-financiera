@@ -6,7 +6,7 @@ module.exports = {
       sans: ['Montserrat, sans-serif']
     },
     backgroundImage: {
-      fondo: [ "url('/public/fondo.png')"]
+      fondo: [ "url('/fondo.png')"]
     },
     extend: {},
   },

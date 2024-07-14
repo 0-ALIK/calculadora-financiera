@@ -1,14 +1,11 @@
-import { obtenerLocalStorage } from "./funciones_helpers";
+import { obtenerLocalStorage, guardarEnLocalStorage } from "./funciones_helpers";
+import { activos } from "./base_datos";
 
 // Valor inicial de años acumulados
 let anosAcumulados = 3;
 
-// Obtener los activos almacenados en localStorage o usar un arreglo vacío si no hay datos
-let activosFijos = obtenerLocalStorage('activos') || [
-    { nombre: "Mobiliario", precio: 10000 },
-    { nombre: "Equipos de oficina", precio: 5000 },
-    { nombre: "Vehículo", precio: 25000 }
-];
+// Obtener los activos almacenados en localStorage o usar los valores iniciales si no hay datos
+let activosFijos = obtenerLocalStorage('activos').length ? obtenerLocalStorage('activos') : activos;
 
 // Función para actualizar la UI
 function actualizarUI() {
@@ -25,21 +22,24 @@ function actualizarUI() {
         const activoElement = document.createElement('article');
         activoElement.className = 'flex justify-between items-center';
         activoElement.innerHTML = `
-            <p class="text-3xl font-semibold text-gray-200">${activo.nombre}</p>
-            <p class="text-3xl font-semibold text-gray-200">${activo.precio}</p>
-            <button onclick="eliminarActivo(${index})" class="btn btn-xs btn-outline btn-danger">Eliminar</button>
+            <p class="text-2xl font-semibold text-gray-200">${activo.descripcion}</p>
+            <p class="text-2xl font-semibold text-gray-200">${activo.costo}</p>
+            <div class="flex gap-2 justify-center ">
+                <button onclick="editarActivo(${index})"   class="btn btn-xs btn-outline btn-primary">Editar</button>
+                <button onclick="eliminarActivo(${index})" class="btn btn-xs btn-outline border-red-400 text-red-400">Eliminar</button>
+            </div>
         `;
         listaActivos.appendChild(activoElement);
 
         // Calcular el valor de los activos fijos netos
-        valorTotal += activo.precio - ((activo.precio / 10) * anosAcumulados);
+        valorTotal += activo.costo - ((activo.costo / 10) * anosAcumulados);
     });
 
     // Actualiza el valor total
     valorTotalElement.textContent = `$${valorTotal}`;
 
     // Guardar los activos actualizados en localStorage
-    localStorage.setItem('activos', JSON.stringify(activosFijos));
+    guardarEnLocalStorage('activos', activosFijos);
 }
 
 // Llama a la función para actualizar la UI al cargar la página
@@ -48,42 +48,62 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Función para agregar un nuevo activo
-function agregarActivo() {
-    const nombreActivo = document.querySelector('.input-nombre-activo').value;
-    const precioActivo = parseFloat(document.querySelector('.input-precio-activo').value);
+window.agregarActivo = function() {
+    const descripcionActivo = document.querySelector('.input-descripcion-activo').value;
+    const costoActivo = parseFloat(document.querySelector('.input-costo-activo').value);
 
-    if (nombreActivo && !isNaN(precioActivo)) {
+    if (descripcionActivo && !isNaN(costoActivo)) {
         // Añadir el nuevo activo al arreglo
-        activosFijos.push({ nombre: nombreActivo, precio: precioActivo });
+        activosFijos.push({ descripcion: descripcionActivo, costo: costoActivo });
 
         // Guardar los activos actualizados en localStorage
-        localStorage.setItem('activos', JSON.stringify(activosFijos));
+        guardarEnLocalStorage('activos', activosFijos);
 
         // Actualizar la lista de activos en la sección principal
         actualizarUI();
 
         // Limpiar los campos de entrada
-        document.querySelector('.input-nombre-activo').value = '';
-        document.querySelector('.input-precio-activo').value = '';
+        document.querySelector('.input-descripcion-activo').value = '';
+        document.querySelector('.input-costo-activo').value = '';
     } else {
         alert('Por favor, ingrese un nombre y un precio válidos.');
     }
 }
 
 // Función para eliminar un activo
-function eliminarActivo(index) {
+window.eliminarActivo = function(index) {
     // Eliminar el activo del arreglo
     activosFijos.splice(index, 1);
 
     // Guardar los activos actualizados en localStorage
-    localStorage.setItem('activos', JSON.stringify(activosFijos));
+    guardarEnLocalStorage('activos', activosFijos);
 
     // Actualizar la lista de activos en la sección principal
     actualizarUI();
 }
 
+// Función para editar un activo
+window.editarActivo = function(index) {
+    const nuevoDescripcion = prompt('Ingrese la nueva descripción del activo:', activosFijos[index].descripcion);
+    const nuevoCosto = parseFloat(prompt('Ingrese el nuevo costo del activo:', activosFijos[index].costo));
+
+    if (nuevoDescripcion && !isNaN(nuevoCosto)) {
+        // Actualizar el activo en el arreglo
+        activosFijos[index].descripcion = nuevoDescripcion;
+        activosFijos[index].costo = nuevoCosto;
+
+        // Guardar los activos actualizados en localStorage
+        guardarEnLocalStorage('activos', activosFijos);
+
+        // Actualizar la lista de activos en la sección principal
+        actualizarUI();
+    } else {
+        alert('Por favor, ingrese una descripción y un costo válidos.');
+    }
+}
+
 // Función para cambiar datos (aquí puedes implementar la lógica adicional según necesites)
-function cambiarDatos() {
+window.cambiarDatos = function() {
     const anosAcumuladosPrompt = prompt('Ingrese la cantidad de años acumulados:');
     const anosAcumuladosNumber = parseInt(anosAcumuladosPrompt);
 
@@ -93,10 +113,4 @@ function cambiarDatos() {
     } else {
         alert('Por favor, ingrese un número válido para los años acumulados.');
     }
-}
-
-// Función para obtener datos de localStorage
-export function obtenerLocalStorage(key) {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
 }

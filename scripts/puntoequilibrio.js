@@ -14,19 +14,20 @@ const productos = obtenerLocalStorage('productos') || [
     { codigo: 1010, descripcion: "Manzana anaranjada", costo: 2.25, precio: 5.75 }
 ];
 
-const inventario = obtenerLocalStorage('inventario') || [
-    { fecha: "01/01/2022", producto: 1001, inventario_inicial: 80, compras: 0, ventas: 0, inventario: 80, costo_unitario: 2, costo_por_prod: 160 }
-    // ... más inventario
-];
+const inventario = obtenerLocalStorage('inventario');
 
-const ventas = obtenerLocalStorage('ventas') || [
-    { fecha: "01/02/2022", transaccion: 1, producto: 1006, cantidad: 2, precio: 5.5, monto: 11, se_otorga_credito: "no", abono_50: 11, fecha_cancelacion: "", cancelacion: 0 }
-    // ... más ventas
-];
+const ventas = obtenerLocalStorage('ventas');
 
 // Función para calcular la cantidad de cada producto en inventario
 function calcularCantidadProducto(codigoProducto) {
-    return inventario.filter(item => item.producto === codigoProducto).reduce((total, item) => total + item.inventario, 0);
+    // Filtrar el inventario por el código del producto y encontrar el máximo valor de "inventario"
+    const inventarioProducto = inventario.filter(item => item.producto === codigoProducto);
+    if (inventarioProducto.length > 0) {
+        const cantidadMasAlta = Math.max(...inventarioProducto.map(item => item.inventario));
+        return cantidadMasAlta;
+    } else {
+        return 0; // Si no hay inventario registrado para el producto, retornar 0
+    }
 }
 
 // Función para calcular la mezcla de ventas en porcentaje
@@ -66,14 +67,14 @@ function actualizarTabla() {
 
         const filaProducto = document.createElement('tr');
         filaProducto.innerHTML = `
-            <td class=" p-2 text-center">${producto.codigo}</td>
-            <td class=" p-2 text-center">${producto.descripcion}</td>
-            <td class=" p-2 text-center">${producto.costo}</td>
-            <td class=" p-2 text-center">${producto.precio}</td>
-            <td class=" p-2 text-center">${cantidad}</td>
-            <td class=" p-2 text-center">${mezclaVentas.toFixed(2)}%</td>
-            <td class=" p-2 text-center">${puntoEquilibrioCantidad.toFixed(2)}</td>
-            <td class=" p-2 text-center">${puntoEquilibrioIngresos.toFixed(2)}</td>
+            <td class="text-gray-200 p-2 text-center">${producto.codigo}</td>
+            <td class="text-gray-200 p-2 text-center">${producto.descripcion}</td>
+            <td class="text-gray-200 p-2 text-center">${producto.costo}</td>
+            <td class="text-gray-200 p-2 text-center">${producto.precio}</td>
+            <td class="text-gray-200 p-2 text-center">${cantidad}</td>
+            <td class="text-gray-200 p-2 text-center">${mezclaVentas.toFixed(2)}%</td>
+            <td class="text-gray-200 p-2 text-center">${puntoEquilibrioCantidad.toFixed(2)}</td>
+            <td class="text-gray-200 p-2 text-center">${puntoEquilibrioIngresos.toFixed(2)}</td>
         `;
         tablaProductos.appendChild(filaProducto);
     });
