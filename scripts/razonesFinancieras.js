@@ -35,18 +35,41 @@ Margen de utilidad neta = ganancias disponibles para los accionistas comunes / v
 
 Relación P/G = Precio de mercado por acción común / Ganancias por acción ​
 */ 
+import {
+    obtenerActivosCorrientes,
+    obtenerPasivosCorrientes,
+    obtenerInventarioTotal,
+    obtenerCostoBienesVendidos,
+    obtenerCuentasPorCobrar,
+    obtenerCuentasPorPagar,
+    obtenerVentasAnuales,
+    obtenerComprasAnuales,
+    obtenerActivosFijos,
+    obtenerPasivos
+} from './razonesFinancieras_funciones';
+
+console.log('Activos corrientes:', obtenerActivosCorrientes());
+console.log('Pasivos corrientes:', obtenerPasivosCorrientes());
+console.log('Inventario:', obtenerInventarioTotal());
+console.log('Costo de bienes vendidos:', obtenerCostoBienesVendidos());
+console.log('Cuentas por cobrar:', obtenerCuentasPorCobrar());
+console.log('Cuentas por pagar:', obtenerCuentasPorPagar());
+console.log('Ventas anuales:', obtenerVentasAnuales(2022));
+console.log('Compras anuales:', obtenerComprasAnuales(2022));
+console.log('Activos fijos:', obtenerActivosFijos());
+console.log('Pasivos:', obtenerPasivos());
 
 const razones_financieras = {
     'razones_liquidez': [
         {
             nombre: 'Liquidez corriente',
             formula: '\\(\\frac{\\text{Activos corrientes}}{\\text{Pasivos corrientes}}\\)',
-            valor: 0
+            valor: obtenerActivosCorrientes() / obtenerPasivosCorrientes()
         },
         {
             nombre: 'Razón rápida',
             formula: '\\(\\frac{\\text{Activos corrientes} - \\text{Inventario}}{\\text{Pasivos corrientes}}\\)',
-            valor: 0
+            valor: (obtenerActivosCorrientes() - obtenerInventarioTotal()[1]) / obtenerPasivosCorrientes()
         }
     ],
     'indices_actividad': [
