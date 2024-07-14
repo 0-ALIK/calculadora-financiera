@@ -11,14 +11,24 @@ const inventariodata = obtenerLocalStorage('inventario');
         // Obtener los productos desde el localStorage
         const inventariosdata = obtenerLocalStorage('inventario') || [];
         let inventarioTotal = 0;
+        let inventarioIT = 0;
+        let cantidadVendida = 0;
     
-        // Sumar los costos de todos los productos
-        inventario.forEach(inventario => {
-            if (inventario && inventario.costo_por_prod) {
-                inventarioTotal += inventario.costo_por_prod;
+        ventas.forEach(venta => {
+            if (venta && venta.cantidad) {
+                cantidadVendida += venta.cantidad;
             }
         });
     
+        // Sumar los costos de todos los productos
+        inventario.forEach(inventario => {
+            if (inventario && inventario.inventario_inicial) {
+                inventarioIT += inventario.inventario_inicial;
+            }
+        });
+        
+        inventarioTotal = inventarioIT - cantidadVendida;
+
         return inventarioTotal;
     };
     
@@ -45,8 +55,8 @@ const mostrarValoresEnHTML = () => {
     const elementoInventario = document.getElementById('valor-inventario');
     const elementoVentas = document.getElementById('valor-ventas');
     
-    elementoInventario.textContent = `El valor total del inventario es: $${inventario.toFixed(2)}`;
-    elementoVentas.textContent = `El valor total de las ventas es: $${ventas.toFixed(2)}`;
+    elementoInventario.textContent = `$ ${inventario.toFixed(2)}`;
+    elementoVentas.textContent = `$ ${ventas.toFixed(2)}`;
 };
 
 // Ejecutar la función para mostrar los valores cuando se cargue la página
