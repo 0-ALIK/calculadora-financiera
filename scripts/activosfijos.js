@@ -1,12 +1,14 @@
-// Arreglo para almacenar los activos fijos
-let activosFijos = [
+import { obtenerLocalStorage } from "./funciones_helpers";
+
+// Valor inicial de años acumulados
+let anosAcumulados = 3;
+
+// Obtener los activos almacenados en localStorage o usar un arreglo vacío si no hay datos
+let activosFijos = obtenerLocalStorage('activos') || [
     { nombre: "Mobiliario", precio: 10000 },
     { nombre: "Equipos de oficina", precio: 5000 },
     { nombre: "Vehículo", precio: 25000 }
 ];
-
-// Valor inicial de años acumulados
-let anosAcumulados = 3;
 
 // Función para actualizar la UI
 function actualizarUI() {
@@ -35,6 +37,9 @@ function actualizarUI() {
 
     // Actualiza el valor total
     valorTotalElement.textContent = `$${valorTotal}`;
+
+    // Guardar los activos actualizados en localStorage
+    localStorage.setItem('activos', JSON.stringify(activosFijos));
 }
 
 // Llama a la función para actualizar la UI al cargar la página
@@ -50,6 +55,9 @@ function agregarActivo() {
     if (nombreActivo && !isNaN(precioActivo)) {
         // Añadir el nuevo activo al arreglo
         activosFijos.push({ nombre: nombreActivo, precio: precioActivo });
+
+        // Guardar los activos actualizados en localStorage
+        localStorage.setItem('activos', JSON.stringify(activosFijos));
 
         // Actualizar la lista de activos en la sección principal
         actualizarUI();
@@ -67,6 +75,9 @@ function eliminarActivo(index) {
     // Eliminar el activo del arreglo
     activosFijos.splice(index, 1);
 
+    // Guardar los activos actualizados en localStorage
+    localStorage.setItem('activos', JSON.stringify(activosFijos));
+
     // Actualizar la lista de activos en la sección principal
     actualizarUI();
 }
@@ -82,4 +93,10 @@ function cambiarDatos() {
     } else {
         alert('Por favor, ingrese un número válido para los años acumulados.');
     }
+}
+
+// Función para obtener datos de localStorage
+export function obtenerLocalStorage(key) {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
 }

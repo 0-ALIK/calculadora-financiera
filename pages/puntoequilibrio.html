@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Punto de Equilibrio</title>
+</head>
+<body class="h-full bg-banner bg-cover ">
+    <nav>
+        <div class="navbar bg-base-100">
+            <div class="flex-1 ">
+            <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+            </div>
+            <div class="">
+            <ul class="menu menu-horizontal px-1 ml-20">
+                <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+                <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+                <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
+            </ul>
+            </div>
+        </div> 
+    </nav>
+    <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Punto de Equilibrio</h1>
+
+    </div>
+
+    <div class="flex flex-col items-center bg-base-300/90 justify-center gap-4 p-2 ">
+
+        <section class="flex justify-center">
+            <div class="p-4 bg-blue-300/10 rounded-xl border-2 border-neutral-content/10">
+                <h2 class="text-xl font-semibold text-gray-100">Indicadores Mensuales</h2>
+                <p class="text-lg font-medium text-gray-300">Punto de Equilibrio (Cantidad): <span id="punto-equilibrio-cantidad"></span></p>
+                <p class="text-lg font-medium text-gray-300">Punto de Equilibrio (Ingresos): <span id="punto-equilibrio-ingresos"></span></p>
+            </div>
+        </section>
+
+        <section class="flex justify-center items-center overflow-auto h-full rounded-lg border-2 border-neutral-content/10 ">
+            <table class=" overflow-auto tabla-productos table-zebra table table-pin-rows table-pin-cols ">
+                <thead>
+                    <tr class="text-white/90 text-xs text-center">
+                        <th class="rounded-lg p-2">Código</th>
+                        <th class="rounded-lg p-2">Descripción</th>
+                        <th class="rounded-lg p-2">Costo</th>
+                        <th class="rounded-lg p-2">Precio</th>
+                        <th class="rounded-lg p-2">Cantidad</th>
+                        <th class="rounded-lg p-2">Mezcla en Ventas (%)</th>
+                        <th class="rounded-lg p-2">Punto E. (Cantidad)</th>
+                        <th class="rounded-lg p-2">Punto E. (Ingresos)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+
+    </div>
+
+    <script src="../scripts/puntoequilibrio.js" type="module"></script>
+</body>
+</html>
