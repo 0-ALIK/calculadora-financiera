@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Presupuesto de Caja</title>
+</head>
+
+
+<body>
+
+    <nav>
+        <div class="navbar bg-base-100">
+            <div class="flex-1 ">
+              <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+            </div>
+            <div class="">
+              <ul class="menu menu-horizontal px-1 ml-20">
+                <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+                <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+                <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
+              </ul>
+            </div>
+          </div> 
+      </nav>   
+
+
+
+
+
+
+
+
+    
+
+
+    <section class="flex gap-5 p-4 justify-center">
+        <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
+
+           
+
+            <div class="flex gap-2">
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Salario</p>
+                    <input type="text" class="grow pl-2 input-nombre-activo" id="principal"     placeholder="Añadir nuevo presupuesto " />
+                </label>
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Otros</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="rate" placeholder="$" />
+                    
+                </label>
+
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Renta</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="time" placeholder="$" />
+                    
+                </label>
+            </div>
+        </div>
+
+
+        
+    </section>
+    
+    <div class="flex flex-col items-center px-8 gap-4 ">
+        <button class="btn text-3xl" id="calculate-btn">Calcular</button>
+
+    </div>
+
+<br>
+
+    
+    <div class="flex  items-center  bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
+        <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result">0</p>
+    </div>
+</div>
+
+
+<script src="../scripts/pcaja.js" type="module"></script>
+</body>
+
+
+
+
+</html>
