@@ -1,10 +1,12 @@
 import { obtenerLocalStorage } from "./funciones_helpers";
 
+
 const costos_operaciondata = obtenerLocalStorage('costos_operacion');
 const comprasdata = obtenerLocalStorage('compras');
 const inventariodata = obtenerLocalStorage('inventario');
 const ventasdata = obtenerLocalStorage('ventas');
 const activosdata = obtenerLocalStorage('activos');
+
 
     export const calcularInventario = () => {
         let inventarioTotal = 0;
@@ -16,6 +18,7 @@ const activosdata = obtenerLocalStorage('activos');
                 cantidadVendida += ventasdata.cantidad;
             }
         });
+            console.log(cantidadVendida);
     
         // Sumar los costos de todos los productos
         inventariodata.forEach(inventariodata => {
@@ -23,6 +26,8 @@ const activosdata = obtenerLocalStorage('activos');
                 inventarioIT += inventariodata.inventario_inicial;
             }
         });
+
+        console.log(inventarioIT);
         
         inventarioTotal = inventarioIT - cantidadVendida;
 
@@ -94,6 +99,25 @@ const activosdata = obtenerLocalStorage('activos');
         return cuentas_por_pagar;
     };
 
+    const calcularInversionI = () => {
+        let inversionI = 0;
+
+        activosdata.forEach(activosdata => {
+            if (activosdata && activosdata.costo) {
+                inversionI += activosdata.costo;
+            }
+        });
+
+        return inversionI;
+    }
+
+    const calcularTotalCapital = () => {
+        let totalCapital = 0;
+
+        totalCapital = CalcularTotalActivos() - 25560.00;
+
+        return totalCapital;
+    } 
 
    
 
@@ -102,20 +126,22 @@ const mostrarValoresEnHTML = () => {
     const inventario = calcularInventario();
     const cuentas_por_cobrar = CalcularCuentasPorCobrar();
     const total_activos_corrientes = CalcularActivosCorrientes();
-    //const mobiliario = obtenerActivos();
     const total_activos_fijos = CalcularActivosFijos();
     const total_activos = CalcularTotalActivos();
     const cuentas_por_pagar = CalcularCuentasPorPagar();
+    const inversion_I = calcularInversionI();
+    const total_capital = calcularTotalCapital();
 
     // Obtener los elementos del HTML
     
     const elementoInventario = document.getElementById('valor-inventario');
     const elementoCuentasPorCobrar = document.getElementById('valor-cuentas-por-cobrar');
     const elementoActivosCorrientes = document.getElementById('valor-activos-corrientes');
-    //const elementoMobiliario = document.getElementById('valor-mobiliario');
     const elementoActivosFijos = document.getElementById('valor-activos-fijos');
     const elementoTotalActivos = document.getElementById('valor-total-activos');
     const elementoCuentasPorPagar = document.getElementById('valor-cuentas-por-pagar');
+    const elementoInversionI = document.getElementById('valor-inversion-i');
+    const elementoTotalCapital = document.getElementById('valor-total-capital');
     
 
     // Mostrar los valores en el HTML
@@ -123,10 +149,11 @@ const mostrarValoresEnHTML = () => {
     elementoInventario.textContent = `$ ${inventario.toFixed(2)}`;
     elementoCuentasPorCobrar.textContent = `$ ${cuentas_por_cobrar.toFixed(2)}`;
     elementoActivosCorrientes.textContent = `$ ${total_activos_corrientes.toFixed(2)}`;
-    //elementoMobiliario.textContent = `$ ${mobiliario.toFixed(2)}`;
     elementoActivosFijos.textContent = `$ ${total_activos_fijos.toFixed(2)}`;
     elementoTotalActivos.textContent = `$ ${total_activos.toFixed(2)}`;
     elementoCuentasPorPagar.textContent = `$ ${cuentas_por_pagar.toFixed(2)}`;
+    elementoInversionI.textContent = `$ ${inversion_I.toFixed(2)}`;
+    elementoTotalCapital.textContent = `$ ${total_capital.toFixed(2)}`;
 };
 
 // Ejecutar la función para mostrar los valores cuando se cargue la página
