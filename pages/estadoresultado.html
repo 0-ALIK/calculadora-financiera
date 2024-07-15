@@ -29,7 +29,7 @@
         
         
         <div class="bg-gray-600 p-4 rounded-lg shadow-lg mb-4">
-          <h2 class="text-xl font-semibold mb-2">Activo</h2>
+          <h2 class="text-xl font-semibold mb-2"></h2>
           <table class="min-w-full divide-y divide-gray-500">
             <thead class="bg-slate-500">
               <tr>
@@ -42,7 +42,7 @@
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Ingresos por ventas</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-ventas"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-unidades-vendidas"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Menos: Costos de los bienes vendidos</td>
@@ -52,17 +52,17 @@
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Costo fijo</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-costo-fijo"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 17300.00</span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Costo variante</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-costo-variante"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-costos"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Utilidad bruta</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-utilidad-bruta"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-ub"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Menos: Gastos operativos</td>
@@ -71,38 +71,38 @@
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Gastos fijos</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-gastos-fijos"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 4700.00</td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Gastos variantes</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-gastos-variantes"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-gastos"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Utilidad operativa</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-utilidad-operativa"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-uo"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Menos: Gastos por intereses</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-gastos-interes"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 48785.61</td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Utilidad neta antes de Impuestos</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-utilidad-neta"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-un"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Menos: Impuestos</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-umi"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-umi"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Utilidad neta despues de Impuestos</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-udi"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-udi"></span></td>
               </tr>
             </tbody>
           </table>
