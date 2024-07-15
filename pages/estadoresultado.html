@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    
+    <title>Balance General</title>
+    <nav>
+        <div class="navbar bg-base-100">
+            <div class="flex-1 ">
+              <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+            </div>
+            <div class="">
+              <ul class="menu menu-horizontal px-1 ml-20">
+                <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+                <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+                <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
+                <li><a href="http://localhost:5173/pages/balancegeneral.html">Balance General</a></li>
+                <li><a href="http://localhost:5173/pages/estadoresultado.html">Estado Resultado</a></li>
+                <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones Financieras</a></li>
+                <li><a href="http://localhost:5173/pages/puntoequilibrio.html">Presupuesto de Caja</a></li>
+            </ul>
+            </div>
+          </div> 
+      </nav>
+</head>
+<body>
+      <h1 class="text-5xl text-blue-400 font-bold mb-4">Estado Resultado</h1>
+      <div class="flex justify-center">
+        
+        
+        <div class="bg-gray-600 p-4 rounded-lg shadow-lg mb-4">
+          <h2 class="text-xl font-semibold mb-2"></h2>
+          <table class="min-w-full divide-y divide-gray-500">
+            <thead class="bg-slate-500">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Descripción</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Monto</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Proforma</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-800 divide-y divide-gray-200"> 
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Ingresos por ventas</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-ventas"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-unidades-vendidas"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Menos: Costos de los bienes vendidos</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Costo fijo</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-costo-fijo"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 17300.00</span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Costo variante</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-costo-variante"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-costos"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Utilidad bruta</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-utilidad-bruta"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-ub"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Menos: Gastos operativos</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Gastos fijos</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-gastos-fijos"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 4700.00</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Gastos variantes</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-gastos-variantes"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-gastos"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Utilidad operativa</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-utilidad-operativa"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-uo"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Menos: Gastos por intereses</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-gastos-interes"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 48785.61</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Utilidad neta antes de Impuestos</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-utilidad-neta"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-un"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Menos: Impuestos</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-umi"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-umi"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Utilidad neta despues de Impuestos</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-udi"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pronostico-udi"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <script src="../scripts/estadoresultado.js" type="module" defer></script>
+      </div>
+</body>
+</html>

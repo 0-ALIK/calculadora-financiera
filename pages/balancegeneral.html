@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    
+    <title>Balance General</title>
+    <nav>
+        <div class="navbar bg-base-100">
+            <div class="flex-1 ">
+              <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+            </div>
+            <div class="">
+              <ul class="menu menu-horizontal px-1 ml-20">
+                <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+                <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+                <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
+                <li><a href="http://localhost:5173/pages/balancegeneral.html">Balance General</a></li>
+                <li><a href="http://localhost:5173/pages/estadoresultado.html">Estado Resultado</a></li>
+                <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones Financieras</a></li>
+                <li><a href="http://localhost:5173/pages/puntoequilibrio.html">Presupuesto de Caja</a></li>
+            </ul>
+            </div>
+          </div> 
+      </nav>
+</head>
+<body>
+      <h1 class="text-5xl text-blue-400 font-bold mb-4">Balance General</h1>
+      <div class="flex justify-center gap-28 grid-cols-3">
+        
+        
+        <div class="bg-gray-600 p-4 rounded-lg shadow-lg mb-4  place-self-center">
+          <h2 class="text-xl font-semibold mb-2">Activo</h2>
+          <table class="min-w-full divide-y divide-gray-500">
+            <thead class="bg-slate-500">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Descripción</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Monto</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-800 divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace">Activos corrientes</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Efectivo</td>
+                <td class="px-6 py-4 whitespace-nowrap">$5000</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Inventario</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-inventario"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Cuentas por cobrar</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-cuentas-por-cobrar"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap font-semibold">Total de activos corrientes</td>
+                <td class="px-6 py-4 whitespace-nowrap font-semibold"><span id="valor-activos-corrientes"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Activos fijos</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Mobiliario</td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 10000.00</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Transporte</td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 25000.00</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Equipos de oficina</td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 5000.00</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Depreciación acumulada</td>
+                <td class="px-6 py-4 whitespace-nowrap">-$2000</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap font-semibold">Total activos fijos</td>
+                <td class="px-6 py-4 whitespace-nowrap font-semibold"><span id="valor-activos-fijos"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap font-bold">Total activo</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-activos"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <div  class="h-4">
+        <div class="bg-gray-600 p-4 rounded-lg shadow-lg mb-4 ">
+          <h2 class="text-xl font-semibold mb-2">Pasivo</h2>
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-500">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Descripción</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Monto</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-800 divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace">Pasivo corrientes</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Cuentas por pagar</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-cuentas-por-pagar"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Deudas a corto plazo</td>
+                <td class="px-6 py-4 whitespace-nowrap">$5000</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Impuestos</td>
+                <td class="px-6 py-4 whitespace-nowrap">25%</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Total pasivos corrientes</td>
+                <td class="px-6 py-4 whitespace-nowrap">$</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace">Pasivo fijos</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              <tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Deudas a largo plazo</td>
+                <td class="px-6 py-4 whitespace-nowrap">$10000</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Total pasivos fijos</td>
+                <td class="px-6 py-4 whitespace-nowrap">$</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap font-bold">Total pasivo</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold">$</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+        <div class="bg-gray-600 p-4 rounded-lg shadow-lg mb-4">
+          <h2 class="text-xl font-semibold mb-2">Capital</h2>
+          <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-500">
+              <tr>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Descripción</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Monto</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-800 divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Inversión inicial</td>
+                <td class="px-6 py-4 whitespace-nowrap">$ 40000.00</td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Pérdidas acumuladas</td>
+                <td class="px-6 py-4 whitespace-nowrap"></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap font-bold">Total capital</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </div>
+        <script src="../scripts/balancegeneral.js" type="module" defer></script>
+      </div>
+</body>
+</html>
