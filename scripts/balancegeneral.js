@@ -49,16 +49,20 @@ const activosdata = obtenerLocalStorage('activos');
         return totalActivosCorrientes;
     };
 
-    /*const obtenerActivos = () => {
-
-    };*/
 
     const CalcularActivosFijos = () => {
         let totalActivosFijos = 0;
+        let totalAFN = 0;
 
-        totalActivosFijos = (10000 + 25000 + 5000)- 2000;
+        activosdata.forEach(activosdata => {
+            if (activosdata && activosdata.costo) {
+                totalActivosFijos += activosdata.costo;
+            }
+        });
 
-        return totalActivosFijos;
+        totalAFN = totalActivosFijos - 32000;
+
+        return totalAFN;
     }
 
     const CalcularTotalActivos = () => {
