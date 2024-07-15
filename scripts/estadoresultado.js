@@ -11,12 +11,20 @@ const productosdata = obtenerLocalStorage('productos');
 
 const calcularVentas = () => {
     let totalVentas = 0;
+    let cantidadcompras = 0;
 
     ventasdata.forEach(ventasdata => {
 
         totalVentas += ventasdata.monto;
         
     });
+
+
+    comprasdata.forEach(comprasdata => {
+        cantidadcompras += comprasdata.total;
+
+    });
+    console.log(cantidadcompras);
     return totalVentas;
 }
 
