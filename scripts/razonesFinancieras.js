@@ -136,10 +136,10 @@ const renderRazonesFinancieras = (tipo) => {
         const tr = document.createElement('tr');
 
         tr.innerHTML = `
-            <th>${index + 1}</th>
-            <td>${razon.nombre}</td>
+            <th class="text-2xl py-6 px-10 text-gray-300 font-medium" >${index + 1}</th>
+            <td class="text-2xl py-6 px-10 text-gray-300 font-medium" >${razon.nombre}</td>
             <td>
-                <p class="text-4xl text-secondary font-bold">${razon.valor.toFixed(2)}</p>
+                <p class="text-xl text-secondary font-bold">${razon.valor.toFixed(2)}</p>
             </td>
         `;
 
