@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="./style.css">
         <title>Vite App</title>
     </head>
-    <body class="h-screen overflow-hidden">
+    <body class="h-full">
 
         <nav class="flex w-[800px] m-auto">
             <div class="navbar bg-base-100 ">
@@ -24,83 +24,85 @@
             </div>
         </nav> 
         
-        <section class="bg-fondo gap-5 h-full flex flex-col bg-no-repeat bg-cover px-10">
+        <section class="bg-fondo h-full gap-5 flex flex-col bg-no-repeat bg-cover px-10">
             <h1 class=" text-5xl text-gray-200 font-bold">Inicio</h1>
 
-            <div class="flex items-center justify-center">
-                <section class="flex w-fit px-10 py-6 justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-fit">
+            <div class="flex items-center justify-center overflow-auto h-full">
+                <section class="flex w-fit items-center px-10 py-6 justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg h-fit">
 
-                    <article class="flex flex-col">
+                    <article class="flex flex-col overflow-auto w-fit">
 
-                        <div class="collapse collapse-arrow bg-base-200">
+                        <div class="collapse collapse-arrow bg-base-200 ">
                             <input type="radio" name="my-accordion-2" />
                             <div class="collapse-title text-xl font-medium">
-                                <h2>Calculadora Financiera</h2>
+                                <h2 class="text-3xl text-blue-300 font-semibold">Calculadora Financiera</h2>
                             </div>
 
                             <div class="collapse-content">
-                                <p>hello</p>
+                                <p class="border-2 rounded-xl border-gray-700 p-2 text-md font-medium text-gray-300">herramienta que ayuda a realizar cálculos relacionados con el dinero, como intereses, préstamos, inversiones y ahorros. Permite a los usuarios calcular pagos de préstamos, valores futuros de inversiones, tasas de interés y otros aspectos financieros de manera rápida y precisa.
+                                </p>
                             </div>
                         </div>
 
                         <div class="collapse collapse-arrow bg-base-200">
                             <input type="radio" name="my-accordion-2" />
                             <div class="collapse-title text-xl font-medium">
-                                <h2>Balance General</h2>
+                                <h2 class="text-3xl text-blue-300 font-semibold">Balance General</h2>
                             </div>
                             
                             <div class="collapse-content">
-                                <p>hello</p>
+                                <p class="border-2 rounded-xl border-gray-700 p-2 text-md font-medium text-gray-300">estado financiero que muestra la situación económica de una empresa en un momento específico. Detalla los activos (lo que posee), los pasivos (lo que debe) y el patrimonio neto (la diferencia entre activos y pasivos), ofreciendo una visión clara de la solvencia y estabilidad financiera.</p>
                             </div>
                         </div>
 
                         <div class="collapse collapse-arrow bg-base-200">
                             <input type="radio" name="my-accordion-2" />
                             <div class="collapse-title text-xl font-medium">
-                                <h2>Razones Financieras </h2>
+                                <h2 class="text-3xl text-blue-300 font-semibold">Razones Financieras </h2>
                             </div>
                             
-                            <div class="collapse-content">
-                                <p>hello</p>
+                            <div class="collapse-content flex">
+                                <p class="border-2 rounded-xl border-gray-700 p-2 text-md font-medium text-gray-300">indicadores que se utilizan para analizar la salud financiera de una empresa. Comparan diferentes cifras de los estados financieros para evaluar aspectos como la rentabilidad, la liquidez y la eficiencia operativa.</p>
+                                  
                             </div>
                         </div>
 
                         <div class="collapse collapse-arrow bg-base-200">
                             <input type="radio" name="my-accordion-2" />
                             <div class="collapse-title text-xl font-medium">
-                                <h2>Presupuesto de Caja</h2>
+                                <h2 class="text-3xl text-blue-300 font-semibold">Presupuesto de Caja</h2>
                             </div>
                             
                             <div class="collapse-content">
-                                <p>hello</p>
+                                <p class="border-2 rounded-xl border-gray-700 p-2 text-md font-medium text-gray-300">plan financiero que estima los ingresos y egresos de efectivo de una empresa en un periodo específico. Ayuda a asegurar que la empresa tenga suficiente efectivo para cumplir con sus obligaciones y planificar las necesidades de financiamiento.</p>
                             </div>
                         </div>
 
                         <div class="collapse collapse-arrow bg-base-200">
                             <input type="radio" name="my-accordion-2" />
                             <div class="collapse-title text-xl font-medium">
-                                <h2>Activos Fijos (Depreciación) <h2>
+                                <h2 class="text-3xl text-blue-300 font-semibold">Activos Fijos (Depreciación) <h2>
                             </div>
                             
                             <div class="collapse-content">
-                                <p>hello</p>
+                                <p class="border-2 rounded-xl border-gray-700 p-2 text-md font-medium text-gray-300">Son bienes duraderos que una empresa utiliza durante un largo periodo, como maquinaria o edificios. La depreciación es el proceso de asignar el costo de estos activos a lo largo de su vida útil, reflejando su desgaste y disminución de valor con el tiempo.</p>
                             </div>
                         </div>
 
                         <div class="collapse collapse-arrow bg-base-200">
                             <input type="radio" name="my-accordion-2" />
                             <div class="collapse-title text-xl font-medium">
-                                <h2>Punto de Equilibrio</h2>
+                                <h2 class="text-3xl text-blue-300 font-semibold">Punto de Equilibrio</h2>
                             </div>
                             
                             <div class="collapse-content">
-                                <p>hello</p>
+                                <p class="border-2 rounded-xl border-gray-700 p-2 text-md font-medium text-gray-300">nivel de ventas en el cual los ingresos totales igualan los costos totales, resultando en cero ganancias o pérdidas. En este punto, la empresa cubre todos sus costos fijos y variables, pero no obtiene beneficios ni incurre en pérdidas.</p>
                             </div>
                         </div>
 
                     </article>
                     <div>
-                        <img src="/fondo.png" alt="" width="600">
+                        <img src="/fondo.png" alt="" width="1000">
                     </div>
                 </section>
             </div>
