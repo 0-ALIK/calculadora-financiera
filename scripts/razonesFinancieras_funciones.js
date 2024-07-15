@@ -108,17 +108,3 @@ export const obtenerPasivos = () => {
     const pasivos = costos_operacion.reduce((total, costo) => total + costo.costo, 0);
     return Number(pasivos);
 };
-
-const mostrarValoresEnHTML = () => {
-    const inventario = obtenerInventarioTotal();
-    //const ventas = calcularVentas();
-    
-    const elementoInventario = document.getElementById('valor-inventario');
-    //const elementoVentas = document.getElementById('valor-ventas');
-    
-    console.log(inventario);
-    //elementoVentas.textContent = `El valor total de las ventas es: $${ventas.toFixed(2)}`;
-};
-
-// Ejecutar la función para mostrar los valores cuando se cargue la página
-document.addEventListener('DOMContentLoaded', mostrarValoresEnHTML);
