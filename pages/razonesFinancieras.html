@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Razones financieras</title>
 </head>
-<body>
+<body class="h-screen overflow-x-hidden w-screen font-sans ">
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
@@ -18,28 +17,52 @@
                     <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
                     <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
                     <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
-                    <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones financieras</a></li>
+                    <li><a href="http://localhost:5173/pages/balancegeneral.html">Balance General</a></li>
+                    <li><a href="http://localhost:5173/pages/estadoresultado.html">Estado Resultado</a></li>
+                    <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones Financieras</a></li>
+                    <li><a href="http://localhost:5173/pages/puntoequilibrio.html">Presupuesto de Caja</a></li>
                 </ul>
             </div>
         </div> 
     </nav> 
-    
-    <main class="w-full xl:w-9/12 mx-auto">
+    <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Razones</h1>
+    </div>
+    <p class="text-4xl text-secondary font-bold"></p>
+    <main class="w-full h-full bg-fondo bg-no-repeat bg-cover">
 
-        <div role="tablist" class="tabs tabs-boxed mb-10">
-            <a role="tab" data-tab="razones_liquidez" class="tab tab-active">Razones de liquidez</a>
-            <a role="tab" data-tab="indices_actividad" class="tab">Índices de actividad</a>
-            <a role="tab" data-tab="razones_endeudamiento" class="tab">Razones de endeudamiento</a>
-            <a role="tab" data-tab="indices_rendimiento" class="tab">Índices de rendimiento</a>
-            <a role="tab" data-tab="razones_mercado" class="tab">Razones de mercado</a>
+        <div role="tablist" class="tabs tabs-md tabs-boxed m-1">
+            <a role="tab" data-tab="razones_liquidez"      class=" text-xs font-semibold tab tab-active ">Razones de liquidez</a>
+            <a role="tab" data-tab="indices_actividad"     class=" text-xs font-semibold tab">Índices de actividad</a>
+            <a role="tab" data-tab="razones_endeudamiento" class=" text-xs font-semibold tab">Razones de endeudamiento</a>
+            <a role="tab" data-tab="indices_rendimiento"   class=" text-xs font-semibold tab">Índices de rendimiento</a>
+            <a role="tab" data-tab="razones_mercado"       class=" text-xs font-semibold tab">Razones de mercado</a>
         </div>
 
-        <section id="contenido" class="flex flex-col justify-center gap-5">
+        <section class=" flex flex-col items-center">
+            <div class="mt-5 flex flex-col p-10 items-center justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg h-fit w-8/12">
+    
+                <section class="">
 
-           
+                    <div class="overflow-x-auto card bg-blue-300/10 w-fit px-5 p-5">
+                        <table class="table">
+                        <!-- head -->
+                        <thead>
+                            <tr>
+                            <th></th>
+                            <th class="text-4xl font-bold p-2 text-blue-300/90 ">Razón</th>
+                            <th class="text-4xl font-bold p-2 text-blue-300/90 ">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenido">
 
-        </section>
-        
+                        </tbody>
+                        </table>
+                    </div>
+
+                </section>
+            </div>
+        </section>     
     </main>
 
 

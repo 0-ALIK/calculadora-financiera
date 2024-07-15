@@ -6,3 +6,5 @@ export const obtenerLocalStorage = (clave) => {
     const arreglo = JSON.parse(localStorage.getItem(clave));
     return arreglo === null ? [] : arreglo;
 };
+
+

@@ -6,7 +6,8 @@
         <link rel="stylesheet" href="./style.css">
         <title>Vite App</title>
     </head>
-    <body>
+    <body class="h-screen overflow-hidden">
+
         <nav class="flex w-[800px] m-auto">
             <div class="navbar bg-base-100 ">
                 <div class="flex-1 ">
@@ -14,18 +15,101 @@
                 </div>
                 <div class="">
                     <ul class="menu menu-horizontal px-1 ml-20">
-                    <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
-                    <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
-                    <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
-                    <li><a href="http://localhost:5173/pages/balancegeneral.html">Balance General</a></li>
-                    <li><a href="http://localhost:5173/pages/estadoresultado.html">Estado Resultado</a></li>
+                        <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
+                        <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
+                        <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
+                        <li><a href="http://localhost:5173/pages/balancegeneral.html">Balance General</a></li>
+                        <li><a href="http://localhost:5173/pages/estadoresultado.html">Estado Resultado</a></li>
+                        <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones Financieras</a></li>
+                        <li><a href="http://localhost:5173/pages/puntoequilibrio.html">Presupuesto de Caja</a></li>
                     </ul>
                 </div>
             </div>
         </nav> 
+        
+        <section class="bg-fondo gap-5 h-full flex flex-col bg-no-repeat bg-cover px-10">
+            <h1 class=" text-5xl text-gray-200 font-bold">Inicio</h1>
 
+            <div class="flex items-center justify-center">
+                <section class="flex w-fit px-10 py-6 justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-fit">
+
+                    <article class="flex flex-col">
+
+                        <div class="collapse collapse-arrow bg-base-200">
+                            <input type="radio" name="my-accordion-2" />
+                            <div class="collapse-title text-xl font-medium">
+                                <h2>Calculadora Financiera</h2>
+                            </div>
+
+                            <div class="collapse-content">
+                                <p>hello</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-arrow bg-base-200">
+                            <input type="radio" name="my-accordion-2" />
+                            <div class="collapse-title text-xl font-medium">
+                                <h2>Balance General</h2>
+                            </div>
+                            
+                            <div class="collapse-content">
+                                <p>hello</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-arrow bg-base-200">
+                            <input type="radio" name="my-accordion-2" />
+                            <div class="collapse-title text-xl font-medium">
+                                <h2>Razones Financieras </h2>
+                            </div>
+                            
+                            <div class="collapse-content">
+                                <p>hello</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-arrow bg-base-200">
+                            <input type="radio" name="my-accordion-2" />
+                            <div class="collapse-title text-xl font-medium">
+                                <h2>Presupuesto de Caja</h2>
+                            </div>
+                            
+                            <div class="collapse-content">
+                                <p>hello</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-arrow bg-base-200">
+                            <input type="radio" name="my-accordion-2" />
+                            <div class="collapse-title text-xl font-medium">
+                                <h2>Activos Fijos (Depreciación) <h2>
+                            </div>
+                            
+                            <div class="collapse-content">
+                                <p>hello</p>
+                            </div>
+                        </div>
+
+                        <div class="collapse collapse-arrow bg-base-200">
+                            <input type="radio" name="my-accordion-2" />
+                            <div class="collapse-title text-xl font-medium">
+                                <h2>Punto de Equilibrio</h2>
+                            </div>
+                            
+                            <div class="collapse-content">
+                                <p>hello</p>
+                            </div>
+                        </div>
+
+                    </article>
+                    <div>
+                        <img src="/fondo.png" alt="" width="600">
+                    </div>
+                </section>
+            </div>
+
+        </section>
 
         <script src="main.js" type="module"></script>
-         
     </body>
 </html>
