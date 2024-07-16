@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="es" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Punto de Equilibrio</title>
+    <title>Presupuesto de Caja</title>
 </head>
-<body class="h-screen bg-banner bg-cover ">
+
+<body class="w-screen h-screen overflow-hidden">
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
-            <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+              <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
             </div>
             <div class="">
                 <ul class="menu menu-horizontal px-1 ml-20">
@@ -53,48 +54,85 @@
                     </li>
                 </ul>
             </div>
-        </div> 
-    </nav>
+          </div> 
+      </nav>   
 
-    <div class="mt-5 ">
-        <h1 class="text-5xl p-5 font-bold text-blue-300">Punto de Equilibrio</h1>
+      <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Presupuesto de Caja</h1>
     </div>
 
-    <section class="bg-fondo flex items-center justify-center bg-no-repeat bg-cover">
-        <div class="flex flex-col px-10 py-6 w-fit justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-full">
+    <div class="flex flex-col justify-center gap-4 bg-fondo items-center bg-no-repeat bg-cover">
+        <section class="flex flex-col p-8 w-fit justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-full">
 
-            <div class="flex flex-col items-center justify-center overflow-hidden gap-4 p-2 ">
-                <section class="flex justify-center">
-                    <div class="p-4 bg-blue-300/10 rounded-xl border-2 border-neutral-content/10">
-                        <h2 class="text-xl font-semibold text-gray-100">Indicadores Mensuales</h2>
-                        <p class="text-lg font-medium text-gray-300">Punto de Equilibrio (Cantidad): <span id="punto-equilibrio-cantidad"></span></p>
-                        <p class="text-lg font-medium text-gray-300">Punto de Equilibrio (Ingresos): <span id="punto-equilibrio-ingresos"></span></p>
-                    </div>
-                </section>
-
-                <section class="flex justify-center items-center overflow-hidden ">
-                    <table class=" overflow-auto max-h-72 tabla-productos bg-base-300/80 table text-sm h-full table-pin-rows table-pin-cols ">
-                        <thead>
-                            <tr class="text-white/90 text-sm text-center h-full overflow-hidden">
-                                <th class="rounded-l-lg gap-2 p-2">Código</th>
-                                <th class="gap-2 p-2">Descripción</th>
-                                <th class="gap-2 p-2">Costo</th>
-                                <th class="gap-2 p-2">Precio</th>
-                                <th class="gap-2 p-2">Cantidad</th>
-                                <th class="gap-2 p-2">Mezcla en Ventas (%)</th>
-                                <th class="gap-2 p-2">Punto E. (Cantidad)</th>
-                                <th class="rounded-r-lg gap-2 p-2">Punto E. (Ingresos)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </section>
-
-
+            <section class="flex gap-4 p-4 justify-center">
+                <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
+                <div class="flex gap-2">
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Salario</p>
+                        <input type="text" class="grow pl-2 input-nombre-activo" id="principal"     placeholder="Añadir nuevo presupuesto " />
+                    </label>
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Inventario</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" id="inv" placeholder="$" />
+                        
+                    </label>
+                    
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Renta</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" id="rent" placeholder="$" />
+                    </label>
             </div>
+
+            <div class="flex gap-2">
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Nómina</p>
+                    <input type="text" class="grow pl-2 input-nombre-activo" id="nom"     placeholder="$ " />
+                </label>
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Seguro</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="seg" placeholder="$" />
+                    
+                </label>
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Impuestos</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="im" placeholder="$" />  
+                </label>
             </div>
+            
+            <div class="flex gap-2">
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Intereses</p>
+                    <input type="text" class="grow pl-2 input-nombre-activo" id="inte"     placeholder="$" />
+                </label>
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Cargos</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="car" placeholder="$" />
+                </label>
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Servicios</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="ser" placeholder="$" />
+                </label> 
+            </section>
+            
+            <div class="flex flex-col items-center px-8 gap-4 ">
+                <button class="btn text-3xl" id="calculate-btn">Calcular</button>
+                
+            </div>
+
+        <div class="flex  items-center  bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result">0</p>
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result2">0</p>
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result3">0</p>
+        </div>
+    
+    </div>
+    
     </section>
-    <script src="../scripts/puntoequilibrio.js" type="module"></script>
+    </div>
+    <script src="../scripts/pcaja.js" type="module"></script>
 </body>
 </html>
