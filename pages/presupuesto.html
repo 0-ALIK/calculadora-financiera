@@ -7,131 +7,132 @@
     <title>Presupuesto de Caja</title>
 </head>
 
-
-<body>
-
+<body class="w-screen h-screen overflow-hidden">
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
               <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
             </div>
             <div class="">
-              <ul class="menu menu-horizontal px-1 ml-20">
-                <li><a href="http://localhost:5173/pages/index.html">Inicio</a></li>
-                <li><a href="http://localhost:5173/pages/calculadorafinanciera.html">Calculadora Financiera</a></li>
-                <li><a href="http://localhost:5173/pages/activosfijos.html">Activos fijos</a></li>
-                <li><a href="http://localhost:5173/pages/balancegeneral.html">Balance General</a></li>
-                <li><a href="http://localhost:5173/pages/estadoresultado.html">Estado Resultado</a></li>
-                <li><a href="http://localhost:5173/pages/razonesFinancieras.html">Razones Financieras</a></li>
-                <li><a href="http://localhost:5173/pages/puntoequilibrio.html">Punto de Equilibrio</a></li>
-                <li><a href="http://localhost:5173/pages/presupuesto.html">Presupuesto de Caja</a></li>
-              </ul>
+                <ul class="menu menu-horizontal px-1 ml-20">
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></a>
+                        <div class="tooltiptext">Inicio</div>
+                    </li>                     
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/calculadorafinanciera.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calculator"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M8 14l0 .01" /><path d="M12 14l0 .01" /><path d="M16 14l0 .01" /><path d="M8 17l0 .01" /><path d="M12 17l0 .01" /><path d="M16 17l0 .01" /></svg></a>
+                        <div class="tooltiptext">Calculadora financiera</div>
+                    </li>
+
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/activosfijos.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-arcs-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M7 12a5 5 0 1 0 5 -5" /><path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957" /></svg></a>
+                        <div class="tooltiptext">Activos Fijos</div>
+                    </li>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/balancegeneral.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-abacus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 3v18" /><path d="M19 21v-18" /><path d="M5 7h14" /><path d="M5 15h14" /><path d="M8 13v4" /><path d="M11 13v4" /><path d="M16 13v4" /><path d="M14 5v4" /><path d="M11 5v4" /><path d="M8 5v4" /><path d="M3 21h18" /></svg></a>
+                        <div class="tooltiptext">Balance General</div>
+                    </li>
+
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/estadoresultado.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-article"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 8h10" /><path d="M7 12h10" /><path d="M7 16h10" /></svg></a>
+                        <div class="tooltiptext">Estado de Resultado</div>
+                    </li>
+
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/razonesFinancieras.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M4 20h14" /></svg></a>
+                        <div class="tooltiptext">Razones Financieras</div>
+                    </li>
+
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/puntoequilibrio.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-timeline"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 16l6 -7l5 5l5 -6" /><path d="M15 14m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M10 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M20 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></a>
+                        <div class="tooltiptext">Punto de Equilibrio</div>
+                    </li>
+
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/presupuesto.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17l0 -5" /><path d="M12 17l0 -1" /><path d="M15 17l0 -3" /></svg></a>
+                        <div class="tooltiptext">Presupuesto de Caja</div>
+                    </li>
+                </ul>
             </div>
           </div> 
       </nav>   
 
+      <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Presupuesto de Caja</h1>
+    </div>
 
+    <div class="flex flex-col justify-center gap-4 bg-fondo items-center bg-no-repeat bg-cover">
+        <section class="flex flex-col p-8 w-fit justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-full">
 
-
-      <h1 class="text-5xl font-bold p-3 text-blue-300">Presupuesto de Caja</h1>
-
-
-
-    
-
-
-    <section class="flex gap-5 p-4 justify-center">
-        <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
-
-           
-
-            <div class="flex gap-2">
-                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Salario</p>
-                    <input type="text" class="grow pl-2 input-nombre-activo" id="principal"     placeholder="Añadir nuevo presupuesto " />
-                </label>
-                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Inventario</p>
-                    <input type="text" class="grow pl-2 input-precio-activo" id="inv" placeholder="$" />
+            <section class="flex gap-4 p-4 justify-center">
+                <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
+                <div class="flex gap-2">
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Salario</p>
+                        <input type="text" class="grow pl-2 input-nombre-activo" id="principal"     placeholder="Añadir nuevo presupuesto " />
+                    </label>
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Inventario</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" id="inv" placeholder="$" />
+                        
+                    </label>
                     
-                </label>
-
-                
-                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Renta</p>
-                    <input type="text" class="grow pl-2 input-precio-activo" id="rent" placeholder="$" />
-                    
-                </label>
-
-
-
-                
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Renta</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" id="rent" placeholder="$" />
+                    </label>
             </div>
+
             <div class="flex gap-2">
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
                     <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Nómina</p>
                     <input type="text" class="grow pl-2 input-nombre-activo" id="nom"     placeholder="$ " />
                 </label>
+                
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
                     <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Seguro</p>
                     <input type="text" class="grow pl-2 input-precio-activo" id="seg" placeholder="$" />
                     
                 </label>
-
                 
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
                     <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Impuestos</p>
-                    <input type="text" class="grow pl-2 input-precio-activo" id="im" placeholder="$" />
-                    
+                    <input type="text" class="grow pl-2 input-precio-activo" id="im" placeholder="$" />  
                 </label>
-
+            </div>
             
+            <div class="flex gap-2">
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Intereses</p>
+                    <input type="text" class="grow pl-2 input-nombre-activo" id="inte"     placeholder="$" />
+                </label>
                 
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Cargos</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="car" placeholder="$" />
+                </label>
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Servicios</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="ser" placeholder="$" />
+                </label> 
+            </section>
+            
+            <div class="flex flex-col items-center px-8 gap-4 ">
+                <button class="btn text-3xl" id="calculate-btn">Calcular</button>
+                
+            </div>
+
+        <div class="flex  items-center  bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result">0</p>
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result2">0</p>
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result3">0</p>
         </div>
-        <div class="flex gap-2">
-            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Intereses</p>
-                <input type="text" class="grow pl-2 input-nombre-activo" id="inte"     placeholder="$" />
-            </label>
-            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Cargos</p>
-                <input type="text" class="grow pl-2 input-precio-activo" id="car" placeholder="$" />
-                
-            </label>
-
-            
-            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Servicios</p>
-                <input type="text" class="grow pl-2 input-precio-activo" id="ser" placeholder="$" />
-                
-            </label>
-
-
-        
+    
+    </div>
+    
     </section>
-    
-    <div class="flex flex-col items-center px-8 gap-4 ">
-        <button class="btn text-3xl" id="calculate-btn">Calcular</button>
-
     </div>
-
-<br>
-
-    
-    <div class="flex  items-center  bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
-        <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result">0</p>
-        <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result2">0</p>
-        <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result3">0</p>
-        
-    </div>
-   
-</div>
-
-
-<script src="../scripts/pcaja.js" type="module"></script>
+    <script src="../scripts/pcaja.js" type="module"></script>
 </body>
-
-
-
-
 </html>
