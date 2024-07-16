@@ -13,42 +13,44 @@
                 </div>
                 <div class="">
                     <ul class="menu menu-horizontal px-1 ml-20">
-                        <li class="tooltip">
-                            <a href="http://localhost:5173/pages/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></a>
-                            <div class="tooltiptext">Inicio</div>
+                        <div class="dropdown dropdown-bottom">
+                            <div tabindex="0" role="button" class="btn btn-ghost">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                            </div>
+                            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                <li><a href="http://localhost:5173/pages/crearProducto.html">Crear producto</a></li>
+                                <li><a href="http://localhost:5173/pages/crearVenta.html">Crear entrada (venta)</a></li>
+                                <li><a href="http://localhost:5173/pages/crearCompra.html">Crear salida (compra)</a></li>
+                            </ul>
+                        </div>
+                        <li class="tooltip tooltip-bottom" data-tip="Inicio">
+                            <a href="http://localhost:5173/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></a>
                         </li>                     
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Calculadora financiera">
                             <a href="http://localhost:5173/pages/calculadorafinanciera.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calculator"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M8 14l0 .01" /><path d="M12 14l0 .01" /><path d="M16 14l0 .01" /><path d="M8 17l0 .01" /><path d="M12 17l0 .01" /><path d="M16 17l0 .01" /></svg></a>
-                            <div class="tooltiptext">Calculadora financiera</div>
                         </li>
 
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Activos fijos">
                             <a href="http://localhost:5173/pages/activosfijos.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-arcs-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M7 12a5 5 0 1 0 5 -5" /><path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957" /></svg></a>
-                            <div class="tooltiptext">Activos Fijos</div>
                         </li>
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Balance general">
                             <a href="http://localhost:5173/pages/balancegeneral.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-abacus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 3v18" /><path d="M19 21v-18" /><path d="M5 7h14" /><path d="M5 15h14" /><path d="M8 13v4" /><path d="M11 13v4" /><path d="M16 13v4" /><path d="M14 5v4" /><path d="M11 5v4" /><path d="M8 5v4" /><path d="M3 21h18" /></svg></a>
-                            <div class="tooltiptext">Balance General</div>
                         </li>
 
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Estado de resultado">
                             <a href="http://localhost:5173/pages/estadoresultado.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-article"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 8h10" /><path d="M7 12h10" /><path d="M7 16h10" /></svg></a>
-                            <div class="tooltiptext">Estado de Resultado</div>
                         </li>
 
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Razones financieras">
                             <a href="http://localhost:5173/pages/razonesFinancieras.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M4 20h14" /></svg></a>
-                            <div class="tooltiptext">Razones Financieras</div>
                         </li>
 
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Punto de equilibrio">
                             <a href="http://localhost:5173/pages/puntoequilibrio.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-timeline"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 16l6 -7l5 5l5 -6" /><path d="M15 14m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M10 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M20 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></a>
-                            <div class="tooltiptext">Punto de Equilibrio</div>
                         </li>
 
-                        <li class="tooltip">
+                        <li class="tooltip tooltip-bottom" data-tip="Presupuesto de caja">
                             <a href="http://localhost:5173/pages/presupuesto.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17l0 -5" /><path d="M12 17l0 -1" /><path d="M15 17l0 -3" /></svg></a>
-                            <div class="tooltiptext">Presupuesto de Caja</div>
                         </li>
                     </ul>
                 </div>
