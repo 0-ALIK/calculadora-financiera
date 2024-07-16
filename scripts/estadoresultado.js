@@ -9,6 +9,7 @@ const ventasdata = obtenerLocalStorage('ventas');
 const activosdata = obtenerLocalStorage('activos');
 const productosdata = obtenerLocalStorage('productos');
 
+
 export const calcularVentas = () => {
     let totalVentas = 0;
     let cantidadcompras = 0;
@@ -27,7 +28,6 @@ export const calcularVentas = () => {
 
     return totalVentas;
 }
-
 
 export const CalcularCostosFijos = () => {
     let costosFijos = 0;
@@ -69,7 +69,6 @@ export const CalcularCostosFijos = () => {
     return costosFijos;
     
 }
-
 
 export const calcularCostosVariantes = () => {
     let costosVariantes = 0;
@@ -236,6 +235,14 @@ export const calcularPronosticoVentas = () => {
     return pronostico_ventas
 }
 
+export const calcularCostosFijosP = () => {
+    let costos_fijosP = 0;
+
+    costos_fijosP = CalcularCostosFijos();
+
+    return costos_fijosP
+}
+
 export const calcularPronosticoCostos = () => {
     let pronostico_costos = 0;
     let porcentaje_ventas1 = 0;
@@ -263,9 +270,17 @@ export const calcularPronosticoCostos = () => {
 export const calcularPronosticoUB = () => {
     let pronostico_UB = 0;
 
-    pronostico_UB = (calcularPronosticoVentas() - ( calcularPronosticoCostos() + 17300.00 ));
+    pronostico_UB = (calcularPronosticoVentas() - ( calcularPronosticoCostos() + calcularCostosFijosP()));
 
     return pronostico_UB
+}
+
+export const calcularPronosticoGastosFijos = () => {
+    let pronostico_gastosFijos = 0;
+
+    pronostico_gastosFijos = calcularGastosFijos();
+
+    return pronostico_gastosFijos;
 }
 
 export const calcularPronosticoGastos = () => {
@@ -288,7 +303,7 @@ export const calcularPronosticoGastos = () => {
 export const calcularPronosticoUO = () => {
     let pronostico_UO = 0;
 
-    pronostico_UO = (calcularPronosticoUB() - (calcularPronosticoGastos() + 4700.00));
+    pronostico_UO = (calcularPronosticoUB() - (calcularPronosticoGastos() + calcularCostosFijosP()));
 
     return pronostico_UO
 }
@@ -296,9 +311,17 @@ export const calcularPronosticoUO = () => {
 export const calcularPronosticoUN = () => {
     let pronostico_UN = 0;
 
-    pronostico_UN = calcularPronosticoUO() - 48785.61;
+    pronostico_UN = calcularPronosticoUO() - calcularGastosporInteresP();
 
     return pronostico_UN
+}
+
+export const calcularGastosporInteresP = () => {
+    let gastos_por_interesP = 0;
+
+    gastos_por_interesP = calcularGastosporInteres();
+
+    return gastos_por_interesP
 }
 
 export const calcularPronosticoUMI = () => {
@@ -329,12 +352,18 @@ export const calcularPronosticoUDI = () => {
     const utilidad_neta = calcularUtilidadNeta();
     const umi = calcularUtilidadmenosImpuestos();
     const udi = calcularUDI();
+
+    //Proforma
+
     const pronostico_ventas = calcularPronosticoVentas();
+    const pronostico_costos_fijos = calcularCostosFijosP();
     const pronostico_costos = calcularPronosticoCostos();
     const pronostico_UB = calcularPronosticoUB();
+    const pronostico_gastos_fijos = calcularPronosticoGastosFijos();
     const pronostico_gastos = calcularPronosticoGastos();
     const pronostico_UO = calcularPronosticoUO();
     const pronostico_UN = calcularPronosticoUN();
+    const gastos_por_interesP = calcularGastosporInteresP();
     const pronostico_UMI = calcularPronosticoUMI();
     const pronostico_udi = calcularPronosticoUDI();
 
@@ -351,12 +380,18 @@ export const calcularPronosticoUDI = () => {
     const elementoUtilidadNeta = document.getElementById('valor-utilidad-neta');
     const elementoUmi = document.getElementById('valor-umi');
     const elementoUdi = document.getElementById('valor-udi');
+
+    //Proforma
+
     const elementoUnidadesVendidas = document.getElementById('valor-unidades-vendidas');
+    const elementoPronosticoCostosFijos = document.getElementById('valor-pronostico-costo-fijos');  
     const elementoPronosticoCostos = document.getElementById('valor-pronostico-costos');
     const elementoPronosticoUB = document.getElementById('valor-pronostico-ub');
+    const elementoPronosticoGastosFijos = document.getElementById('valor-pronostico-gastos-fijos');
     const elementoPronosticoGastos = document.getElementById('valor-pronostico-gastos');
     const elementoPronosticoUO = document.getElementById('valor-pronostico-uo');
     const elementoPronosticoUN = document.getElementById('valor-pronostico-un');
+    const elementoGastosporInteresP = document.getElementById('valor-gastos-interes-p');
     const elementoPronosticoUMI = document.getElementById('valor-pronostico-umi');
     const elementoPronosticoUDI = document.getElementById('valor-pronostico-udi');
     
@@ -373,12 +408,18 @@ export const calcularPronosticoUDI = () => {
     elementoUtilidadNeta.textContent = `$ ${utilidad_neta.toFixed(2)}`;
     elementoUmi.textContent = `$ ${umi.toFixed(2)}`;
     elementoUdi.textContent = `$ ${udi.toFixed(2)}`;
+
+    //Proforma
+
     elementoUnidadesVendidas.textContent = `$ ${pronostico_ventas.toFixed(2)}`;
+    elementoPronosticoCostosFijos.textContent = `$ ${pronostico_costos_fijos.toFixed(2)}`;
     elementoPronosticoCostos.textContent = `$ ${pronostico_costos.toFixed(2)}`;
     elementoPronosticoUB.textContent = `$ ${pronostico_UB.toFixed(2)}`;
+    elementoPronosticoGastosFijos.textContent = `$ ${pronostico_gastos_fijos.toFixed(2)}`;
     elementoPronosticoGastos.textContent = `$ ${pronostico_gastos.toFixed(2)}`;
     elementoPronosticoUO.textContent = `$ ${pronostico_UO.toFixed(2)}`;
     elementoPronosticoUN.textContent = `$ ${pronostico_UN.toFixed(2)}`;
+    elementoGastosporInteresP.textContent = `$ ${gastos_por_interesP.toFixed(2)}`;
     elementoPronosticoUMI.textContent = `$ ${pronostico_UMI.toFixed(2)}`;
     elementoPronosticoUDI.textContent = `$ ${pronostico_udi.toFixed(2)}`;
     
