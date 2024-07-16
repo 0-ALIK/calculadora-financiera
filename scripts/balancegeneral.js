@@ -13,6 +13,8 @@ const activosdata = obtenerLocalStorage('activos');
         let inventarioTotal = 0;
         let inventarioIT = 0;
         let cantidadVendida = 0;
+        let inventarioMonto = 0;
+        let ventasMonto = 0;
     
         ventasdata.forEach(ventasdata => {
             if (ventasdata && ventasdata.cantidad) {
@@ -28,9 +30,22 @@ const activosdata = obtenerLocalStorage('activos');
             }
         });
 
+        inventariodata.forEach(inventariodata => {
+            if (inventariodata && inventariodata.costo_por_prod) {
+                inventarioMonto += inventariodata.costo_por_prod;
+            }
+        });
+        console.log(inventarioMonto);
         
-        
-        inventarioTotal = inventarioIT - cantidadVendida;
+        ventasdata.forEach(ventasdata => {
+            if (ventasdata && ventasdata.monto) {
+                ventasMonto += ventasdata.monto;
+            }
+        });
+        console.log(ventasMonto);
+        console.log(inventarioMonto);
+
+        inventarioTotal = inventarioMonto - ventasMonto;
 
         return inventarioTotal;
     };
@@ -231,7 +246,7 @@ const activosdata = obtenerLocalStorage('activos');
         let acp = 0;
         let efectivo = 61312;
 
-        acp = efectivo + 1032692.00 + calcularCxCp();
+        acp = efectivo + 2146876.65 + calcularCxCp();
 
         return acp
     }
@@ -285,7 +300,7 @@ const activosdata = obtenerLocalStorage('activos');
         ps1 = 0.47 * 119720.00;
 
         cxpp = ps1 * 0.04;
-        console.log(cxpp)
+
         return cxpp
 
     }

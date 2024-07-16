@@ -24,7 +24,7 @@ const calcularVentas = () => {
         cantidadcompras += comprasdata.total;
 
     });
-    console.log(cantidadcompras);
+
     return totalVentas;
 }
 
