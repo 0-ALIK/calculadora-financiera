@@ -46,11 +46,12 @@ const activosdata = obtenerLocalStorage('activos');
 
     const CalcularActivosCorrientes = () => {
         let totalActivosCorrientes = 0;
+        let efectivo = 61312;
 
         const iv = calcularInventario();
         const cpc = CalcularCuentasPorCobrar();
 
-        totalActivosCorrientes = iv + cpc + 15000;
+        totalActivosCorrientes = iv + cpc + efectivo;
     
         return totalActivosCorrientes;
     };
@@ -228,8 +229,9 @@ const activosdata = obtenerLocalStorage('activos');
 
     const calcularACP = () => {
         let acp = 0;
+        let efectivo = 61312;
 
-        acp = 15000 + 1032692.00 + calcularCxCp();
+        acp = efectivo + 1032692.00 + calcularCxCp();
 
         return acp
     }
