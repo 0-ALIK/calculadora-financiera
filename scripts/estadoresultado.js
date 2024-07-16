@@ -303,7 +303,8 @@ export const calcularPronosticoGastos = () => {
 export const calcularPronosticoUO = () => {
     let pronostico_UO = 0;
 
-    pronostico_UO = (calcularPronosticoUB() - (calcularPronosticoGastos() + calcularCostosFijosP()));
+    pronostico_UO = (calcularPronosticoUB() - (calcularPronosticoGastos() + calcularPronosticoGastosFijos()));
+    console.log(calcularPronosticoUB())
 
     return pronostico_UO
 }
