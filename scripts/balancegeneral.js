@@ -189,24 +189,28 @@ const activosdata = obtenerLocalStorage('activos');
 
     //Capital
 
-    const calcularInversionI = () => {
-        let inversionI = 0;
-
-        activosdata.forEach(activosdata => {
-            if (activosdata && activosdata.costo) {
-                inversionI += activosdata.costo;
-            }
-        });
-
-        return inversionI;
-    }
-
     const calcularTotalCapital = () => {
         let totalCapital = 0;
 
-        totalCapital = CalcularTotalActivos() - calcularTotalPasivos();
+        totalCapital = calcularTotalPasivos() + 6038.21;
 
         return totalCapital;
+    }
+
+    const calcularFinan = () => {
+        let finan = 0;
+
+        finan = CalcularTotalActivos() - calcularTotalCapital();
+
+        return finan;
+    }
+
+    const calcularCapitalxFinan = () => {
+        let capital_Finan = 0;
+
+        capital_Finan = calcularTotalCapital() + calcularFinan();
+
+        return capital_Finan;
     }
     
     //Balance General Proforma
@@ -283,6 +287,57 @@ const activosdata = obtenerLocalStorage('activos');
         return cxpp
 
     }
+
+    const calcularImpuestoP = () => {
+        let impuestoP = 0;
+        let i = 0.25;
+
+        impuestoP = i * 3931.94;
+
+        return impuestoP
+    }
+
+    const calcularTotalPCP = () => {
+        let totalPCP = 0;
+
+        totalPCP = calcularCxPp() + calcularImpuestoP() + 5823.72;
+
+        return totalPCP
+    }
+
+    const calcularTotalPasicoP = () => {
+        let totalPasivoP = 0;
+
+        totalPasivoP = calcularTotalPCP() + 27679.45;
+
+        return totalPasivoP
+    }
+
+    //Capital
+
+    const calcularCapitalP = () => {
+        let capitalP = 0;
+
+        capitalP = calcularTotalPasicoP() + 11795.83;
+
+        return capitalP
+    }
+    
+    const calcularFinanP = () => {
+        let finanP = 0;
+
+        finanP = calcularTotalActivosP() - calcularCapitalP();
+
+        return finanP
+    }
+
+    const calcularCapitalxFinanP = () => {
+        let capital_FinanP = 0;
+
+        capital_FinanP = calcularCapitalP() + calcularFinanP();
+
+        return capital_FinanP
+    }
     
 
 // Función para mostrar los valores en el HTML
@@ -299,8 +354,10 @@ const mostrarValoresEnHTML = () => {
     const impuestos = calcularImpuestos();
     const pasivos_corrientes = calcularPasivosCorrientesT();
     const total_pasivos = calcularTotalPasivos();
-    const inversion_I = calcularInversionI();
     const total_capital = calcularTotalCapital();
+    const finan = calcularFinan();
+    const capitalxFinan = calcularCapitalxFinan();
+
     //Proforma
     const cxcp = calcularCxCp();
     const acp = calcularACP();
@@ -310,6 +367,12 @@ const mostrarValoresEnHTML = () => {
     const afnp = calcularAFNP();
     const total_activos_proforma = calcularTotalActivosP();
     const cxpp = calcularCxPp();
+    const impuestoP = calcularImpuestoP();
+    const total_proforma = calcularTotalPCP();
+    const total_pasivos_proforma = calcularTotalPasicoP();
+    const capital_proforma = calcularCapitalP();
+    const finan_proforma = calcularFinanP();
+    const capitalxFinan_proforma = calcularCapitalxFinanP();
 
     // Obtener los elementos del HTML
     
@@ -325,8 +388,10 @@ const mostrarValoresEnHTML = () => {
     const elementoImpuestos = document.getElementById('valor-impuestos');
     const elementoPasivosCorrientes = document.getElementById('valor-pasivos-corrientes');
     const elementoTotalPasivos = document.getElementById('valor-total-pasivos');
-    const elementoInversionI = document.getElementById('valor-inversion-i');
     const elementoTotalCapital = document.getElementById('valor-total-capital');
+    const elementoFinan = document.getElementById('valor-finan');
+    const elementoCapitalxFinan = document.getElementById('valor-capital_Finan');
+
     //Proforma
     const elementoCxCp = document.getElementById('valor-cxcp');
     const elementoAcp = document.getElementById('valor-acp');
@@ -336,6 +401,12 @@ const mostrarValoresEnHTML = () => {
     const elementoAfnp = document.getElementById('valor-afnp');
     const elementoTotalActivos_proforma = document.getElementById('valor-total-activos-proforma');
     const elementoCxpp = document.getElementById('valor-cxpp');
+    const elementoImpuestoP = document.getElementById('valor-impuestoP');
+    const elementoTotalProforma = document.getElementById('valor-total-pcp');
+    const elementoTotalPasivos_proforma = document.getElementById('valor-total-pp');
+    const elementoCapital_proforma = document.getElementById('valor-capital-proforma');
+    const elementoFinan_proforma = document.getElementById('valor-finan-proforma');
+    const elementoCapitalxFinan_proforma = document.getElementById('valor-capital_FinanP');
 
     // Mostrar los valores en el HTML
     
@@ -351,8 +422,10 @@ const mostrarValoresEnHTML = () => {
     elementoImpuestos.textContent = `$ ${impuestos.toFixed(2)}`;
     elementoPasivosCorrientes.textContent = `$ ${pasivos_corrientes.toFixed(2)}`;
     elementoTotalPasivos.textContent = `$ ${total_pasivos.toFixed(2)}`;
-    elementoInversionI.textContent = `$ ${inversion_I.toFixed(2)}`;
     elementoTotalCapital.textContent = `$ ${total_capital.toFixed(2)}`;
+    elementoFinan.textContent = `$ ${finan.toFixed(2)}`;
+    elementoCapitalxFinan.textContent = `$ ${capitalxFinan.toFixed(2)}`;
+
     //Proforma
     elementoCxCp.textContent = `$ ${cxcp.toFixed(2)}`;
     elementoAcp.textContent = `$ ${acp.toFixed(2)}`;
@@ -362,6 +435,12 @@ const mostrarValoresEnHTML = () => {
     elementoAfnp.textContent = `$ ${afnp.toFixed(2)}`;
     elementoTotalActivos_proforma.textContent = `$ ${total_activos_proforma.toFixed(2)}`;
     elementoCxpp.textContent = `$ ${cxpp.toFixed(2)}`;
+    elementoImpuestoP.textContent = `$ ${impuestoP.toFixed(2)}`;
+    elementoTotalProforma.textContent = `$ ${total_proforma.toFixed(2)}`;
+    elementoTotalPasivos_proforma.textContent = `$ ${total_pasivos_proforma.toFixed(2)}`;
+    elementoCapital_proforma.textContent = `$ ${capital_proforma.toFixed(2)}`;
+    elementoFinan_proforma.textContent = `$ ${finan_proforma.toFixed(2)}`;
+    elementoCapitalxFinan_proforma.textContent = `$ ${capitalxFinan_proforma.toFixed(2)}`;
     
 };
 
