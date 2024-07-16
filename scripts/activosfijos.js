@@ -30,18 +30,23 @@ function actualizarUI() {
             </div>
         `;
         listaActivos.appendChild(activoElement);
-
-        // Calcular el valor de los activos fijos netos
-        valorTotal += activo.costo - ((activo.costo / 10) * anosAcumulados);
     });
 
     // Actualiza el valor total
-    valorTotalElement.textContent = `$${valorTotal}`;
+    valorTotalElement.textContent = `$${valorTotalActivosNetos()}`;
 
     // Guardar los activos actualizados en localStorage
     guardarEnLocalStorage('activos', activosFijos);
 }
 
+export const  valorTotalActivosNetos = () => {
+    let activosFijos = obtenerLocalStorage('activos').length ? obtenerLocalStorage('activos') : activos;
+    let valorTotal = 0;
+    activosFijos.forEach(activo => {
+        valorTotal += activo.costo - ((activo.costo / 10) * anosAcumulados);
+    });
+    return valorTotal;
+}
 // Llama a la función para actualizar la UI al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     actualizarUI();
