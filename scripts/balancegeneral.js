@@ -1,5 +1,8 @@
 import { obtenerLocalStorage } from "./funciones_helpers";
-
+import { calcularPronosticoVentas } from "./estadoresultado";
+import { calcularPronosticoUMI } from "./estadoresultado";
+import { calcularPronosticoUDI } from "./estadoresultado";
+import { calcularUDI } from "./estadoresultado";
 
 const costos_operaciondata = obtenerLocalStorage('costos_operacion');
 const comprasdata = obtenerLocalStorage('compras');
@@ -9,6 +12,15 @@ const activosdata = obtenerLocalStorage('activos');
 
     //Activo
 
+    export const calcularEfectivo = () => {
+        let efectivo = 61312.00;
+        let efectivoT = 0;
+
+        efectivoT = efectivo - 0;
+
+        return efectivoT;
+    }
+
     export const calcularInventario = () => {
         let inventarioTotal = 0;
         let inventarioIT = 0;
@@ -16,41 +28,36 @@ const activosdata = obtenerLocalStorage('activos');
         let inventarioMonto = 0;
         let ventasMonto = 0;
     
-        ventasdata.forEach(ventasdata => {
+        /*ventasdata.forEach(ventasdata => {
             if (ventasdata && ventasdata.cantidad) {
                 cantidadVendida += ventasdata.cantidad;
             }
         });
             
-    
-        // Sumar los costos de todos los productos
         inventariodata.forEach(inventariodata => {
             if (inventariodata && inventariodata.inventario_inicial) {
                 inventarioIT += inventariodata.inventario_inicial;
             }
-        });
+        });*/
 
         inventariodata.forEach(inventariodata => {
             if (inventariodata && inventariodata.costo_por_prod) {
                 inventarioMonto += inventariodata.costo_por_prod;
             }
         });
-        console.log(inventarioMonto);
         
         ventasdata.forEach(ventasdata => {
             if (ventasdata && ventasdata.monto) {
                 ventasMonto += ventasdata.monto;
             }
         });
-        console.log(ventasMonto);
-        console.log(inventarioMonto);
 
         inventarioTotal = inventarioMonto - ventasMonto;
 
         return inventarioTotal;
     };
     
-    const CalcularCuentasPorCobrar = () => {
+    export const CalcularCuentasPorCobrar = () => {
         const cuentas_por_cobrar = ventasdata
             .filter(ventasdata => ventasdata.se_otorga_credito === 'sí')
             .reduce((total, ventasdata) => total + (ventasdata.monto - ventasdata.cancelacion), 0);
@@ -59,7 +66,7 @@ const activosdata = obtenerLocalStorage('activos');
     };
 
 
-    const CalcularActivosCorrientes = () => {
+    export const CalcularActivosCorrientes = () => {
         let totalActivosCorrientes = 0;
         let efectivo = 61312;
 
@@ -71,7 +78,7 @@ const activosdata = obtenerLocalStorage('activos');
         return totalActivosCorrientes;
     };
 
-    const calcularMobiliario = () => {
+    export const calcularMobiliario = () => {
         let mobiliario = 0;
         let mobiliarioDep1 = 0;
         let mobiliarioDep2 = 0;
@@ -83,17 +90,17 @@ const activosdata = obtenerLocalStorage('activos');
             }
         });
 
-        mobiliarioDep1 = mobiliario - (mobiliario * 0.1);
+        /*mobiliarioDep1 = mobiliario - (mobiliario * 0.1);
 
         mobiliarioDep2 = mobiliarioDep1 - (mobiliarioDep1 * 0.1);
 
         mobiliarioDep3 = mobiliarioDep2 - (mobiliarioDep2 * 0.1);
-
-        return mobiliarioDep3;
+        */
+        return mobiliario;
 
     }
 
-    const calcularTransporte = () => {
+    export const calcularTransporte = () => {
         let transporte = 0;
         let transporteDep1 = 0;
         let transporteDep2 = 0;
@@ -105,17 +112,17 @@ const activosdata = obtenerLocalStorage('activos');
             }
         });
 
-        transporteDep1 = transporte - (transporte * 0.1);
+        /*transporteDep1 = transporte - (transporte * 0.1);
 
         transporteDep2 = transporteDep1 - (transporteDep1 * 0.1);
 
         transporteDep3 = transporteDep2 - (transporteDep2 * 0.1);
-
-        return transporteDep3;
+        */
+        return transporte;
 
     }
 
-    const calcularEquipo = () => {
+    export const calcularEquipo = () => {
         let equipo = 0;
         let equipoDep1 = 0;
         let equipoDep2 = 0;
@@ -127,24 +134,45 @@ const activosdata = obtenerLocalStorage('activos');
             }
         });
 
-        equipoDep1 = equipo - (equipo * 0.1);
+        /*equipoDep1 = equipo - (equipo * 0.1);
 
         equipoDep2 = equipoDep1 - (equipoDep1 * 0.1);
 
         equipoDep3 = equipoDep2 - (equipoDep2 * 0.1);
-
-        return equipoDep3;
+        */
+        return equipo;
     }
 
-    const CalcularActivosFijos = () => {
-        let totalAFN = 0;
+    export const calcularDepA = () => {
+        let depA = 0;
+        let activos = 0;
 
-        totalAFN = calcularMobiliario() + calcularTransporte() + calcularEquipo() - 28000;
+        activosdata.forEach(activosdata => {
+            if (activosdata && activosdata.costo) {	
+                activos += activosdata.costo;
+            }
+        });
+
+        depA = activos - CalcularActivosFijos();
+
+        return depA;
+    }
+
+    export const CalcularActivosFijos = () => {
+        let totalAFN = 0;
+        let anosAcumulados = 3;
+
+        activosdata.forEach(activosdata => {
+            if (activosdata && activosdata.costo) {	
+                totalAFN += activosdata.costo - ((activosdata.costo / 10) * anosAcumulados);
+            }
+            
+        });
 
         return totalAFN;
     }
 
-    const CalcularTotalActivos = () => {
+    export const CalcularTotalActivos = () => {
         let totalActivos = 0;
 
         totalActivos = CalcularActivosCorrientes() + CalcularActivosFijos();
@@ -176,7 +204,7 @@ const activosdata = obtenerLocalStorage('activos');
         return cuentas_por_pagar;
     };
 
-    const calcularImpuestos = () => {
+    export const calcularImpuestos = () => {
         let impuestos = 0;
         let i = 0.25;
 
@@ -185,7 +213,7 @@ const activosdata = obtenerLocalStorage('activos');
         return impuestos;
     }
 
-    const calcularPasivosCorrientesT = () => {
+    export const calcularPasivosCorrientesT = () => {
         let totalPasivosCorrientes = 0;
 
         const cp = CalcularCuentasPorPagar();
@@ -195,7 +223,7 @@ const activosdata = obtenerLocalStorage('activos');
         return totalPasivosCorrientes;
     }
 
-    const calcularTotalPasivos = () => {
+    export const calcularTotalPasivos = () => {
         let totalPasivos = 0;
 
         totalPasivos = calcularPasivosCorrientesT() + 30859.43;
@@ -205,7 +233,15 @@ const activosdata = obtenerLocalStorage('activos');
 
     //Capital
 
-    const calcularTotalCapital = () => {
+    export const calcularPA = () => {
+        let pA = 0;
+
+        pA = calcularUDI();
+
+        return pA
+    }
+
+    export const calcularTotalCapital = () => {
         let totalCapital = 0;
 
         totalCapital = calcularTotalPasivos() + 6038.21;
@@ -213,7 +249,7 @@ const activosdata = obtenerLocalStorage('activos');
         return totalCapital;
     }
 
-    const calcularFinan = () => {
+    export const calcularFinan = () => {
         let finan = 0;
 
         finan = CalcularTotalActivos() - calcularTotalCapital();
@@ -221,7 +257,7 @@ const activosdata = obtenerLocalStorage('activos');
         return finan;
     }
 
-    const calcularCapitalxFinan = () => {
+    export const calcularCapitalxFinan = () => {
         let capital_Finan = 0;
 
         capital_Finan = calcularTotalCapital() + calcularFinan();
@@ -233,16 +269,24 @@ const activosdata = obtenerLocalStorage('activos');
 
     //Activo
 
-    const calcularCxCp = () => {
+    export const calcularEfectivoP = () => {
+        let efectivoP = 0;
+
+        efectivoP = calcularEfectivo();
+
+        return efectivoP
+    }
+
+    export const calcularCxCp = () => {
         let cxcp = 0;
 
-        cxcp = (1/24) * 119720.00;
+        cxcp = (1/24) * calcularPronosticoVentas();
 
         return cxcp
 
     }
 
-    const calcularACP = () => {
+    export const calcularACP = () => {
         let acp = 0;
         let efectivo = 61312;
 
@@ -251,39 +295,68 @@ const activosdata = obtenerLocalStorage('activos');
         return acp
     }
 
-    const calcularMobiliarioP = () => {
+    export const calcularIP = () => {
+        let ip = 0;
+
+        ip = calcularInventario();
+
+        return ip
+    }
+
+    export const calcularMobiliarioP = () => {
         let mobiliarioP = 0;
 
-        mobiliarioP = calcularMobiliario() - (calcularMobiliario() * 0.1);
+        mobiliarioP = calcularMobiliario();
 
         return mobiliarioP
     }
     
-    const calcularTransporteP = () => {
+    export const calcularTransporteP = () => {
         let transporteP = 0;
 
-        transporteP = calcularTransporte() - (calcularTransporte() * 0.1);
+        transporteP = calcularTransporte();
 
         return transporteP
     }
 
-    const calcularEquipoP = () => {
+    export const calcularEquipoP = () => {
         let equipoP = 0;
 
-        equipoP = calcularEquipo() - (calcularEquipo() * 0.1);
+        equipoP = calcularEquipo();
 
         return equipoP
     }
 
-    const calcularAFNP = () => {
-        let totalAFN = 0;
+    export const calcularDepAP = () => {
+        let depAP = 0;
+        let activos = 0;
 
-        totalAFN = calcularMobiliarioP() + calcularTransporteP() + calcularEquipoP() - 24000;
+        activosdata.forEach(activosdata => {
+            if (activosdata && activosdata.costo) {	
+                activos += activosdata.costo;
+            }
+        });
 
-        return totalAFN
+        depAP = activos - calcularAFNP();
+
+        return depAP;
     }
 
-    const calcularTotalActivosP = () => {
+    export const calcularAFNP = () => {
+        let totalAFNP = 0;
+        let anosAcumulados = 4;
+
+        activosdata.forEach(activosdata => {
+            if (activosdata && activosdata.costo) {	
+                totalAFNP += activosdata.costo - ((activosdata.costo / 10) * anosAcumulados);
+            }
+            
+        });
+
+        return totalAFNP;
+    }
+
+    export const calcularTotalActivosP = () => {
         let totalActivosP = 0;
 
         totalActivosP = calcularACP() + calcularAFNP();
@@ -293,11 +366,11 @@ const activosdata = obtenerLocalStorage('activos');
 
     //Pasivo
 
-    const calcularCxPp = () => {
+    export const calcularCxPp = () => {
         let cxpp = 0;
         let ps1  = 0;
         
-        ps1 = 0.47 * 119720.00;
+        ps1 = 0.47 * calcularPronosticoVentas();
 
         cxpp = ps1 * 0.04;
 
@@ -305,16 +378,16 @@ const activosdata = obtenerLocalStorage('activos');
 
     }
 
-    const calcularImpuestoP = () => {
+    export const calcularImpuestoP = () => {
         let impuestoP = 0;
         let i = 0.25;
 
-        impuestoP = i * 3931.94;
+        impuestoP = i * calcularPronosticoUMI();
 
         return impuestoP
     }
 
-    const calcularTotalPCP = () => {
+    export const calcularTotalPCP = () => {
         let totalPCP = 0;
 
         totalPCP = calcularCxPp() + calcularImpuestoP() + 5823.72;
@@ -322,7 +395,7 @@ const activosdata = obtenerLocalStorage('activos');
         return totalPCP
     }
 
-    const calcularTotalPasicoP = () => {
+    export const calcularTotalPasicoP = () => {
         let totalPasivoP = 0;
 
         totalPasivoP = calcularTotalPCP() + 27679.45;
@@ -332,15 +405,23 @@ const activosdata = obtenerLocalStorage('activos');
 
     //Capital
 
-    const calcularCapitalP = () => {
+    export const calcularPronosticoPA = () => {
+        let pAp = 0;
+        
+        pAp = calcularPronosticoUDI();
+
+        return pAp;
+    }
+
+    export const calcularCapitalP = () => {
         let capitalP = 0;
 
-        capitalP = calcularTotalPasicoP() + 11795.83;
+        capitalP = calcularTotalPasicoP() + calcularPronosticoPA();
 
         return capitalP
     }
     
-    const calcularFinanP = () => {
+    export const calcularFinanP = () => {
         let finanP = 0;
 
         finanP = calcularTotalActivosP() - calcularCapitalP();
@@ -348,7 +429,7 @@ const activosdata = obtenerLocalStorage('activos');
         return finanP
     }
 
-    const calcularCapitalxFinanP = () => {
+    export const calcularCapitalxFinanP = () => {
         let capital_FinanP = 0;
 
         capital_FinanP = calcularCapitalP() + calcularFinanP();
@@ -359,102 +440,123 @@ const activosdata = obtenerLocalStorage('activos');
 
 // Función para mostrar los valores en el HTML
 const mostrarValoresEnHTML = () => {
+    const efectivoT = calcularEfectivo();
     const inventario = calcularInventario();
     const cuentas_por_cobrar = CalcularCuentasPorCobrar();
     const total_activos_corrientes = CalcularActivosCorrientes();
     const mobiliario = calcularMobiliario();
     const transporte = calcularTransporte();
     const equipo = calcularEquipo();
+    const depA = calcularDepA();
     const total_activos_fijos = CalcularActivosFijos();
     const total_activos = CalcularTotalActivos();
     const cuentas_por_pagar = CalcularCuentasPorPagar();
     const impuestos = calcularImpuestos();
     const pasivos_corrientes = calcularPasivosCorrientesT();
     const total_pasivos = calcularTotalPasivos();
+    const perdidas_acu = calcularPA();
     const total_capital = calcularTotalCapital();
     const finan = calcularFinan();
     const capitalxFinan = calcularCapitalxFinan();
 
     //Proforma
+    const efectivoP = calcularEfectivoP();
     const cxcp = calcularCxCp();
     const acp = calcularACP();
+    const inventario_proforma = calcularIP();
     const mobiliario_proforma = calcularMobiliarioP();
     const transporte_proforma = calcularTransporteP();
     const equipo_proforma = calcularEquipoP();
+    const depA_proforma = calcularDepAP();
     const afnp = calcularAFNP();
     const total_activos_proforma = calcularTotalActivosP();
     const cxpp = calcularCxPp();
     const impuestoP = calcularImpuestoP();
     const total_proforma = calcularTotalPCP();
     const total_pasivos_proforma = calcularTotalPasicoP();
+    const perdidas_proforma = calcularPronosticoPA();
     const capital_proforma = calcularCapitalP();
     const finan_proforma = calcularFinanP();
     const capitalxFinan_proforma = calcularCapitalxFinanP();
 
     // Obtener los elementos del HTML
     
+    const elementoEfectivo = document.getElementById('valor-efectivo');
     const elementoInventario = document.getElementById('valor-inventario');
     const elementoCuentasPorCobrar = document.getElementById('valor-cuentas-por-cobrar');
     const elementoActivosCorrientes = document.getElementById('valor-activos-corrientes');
     const elementoMobiliario = document.getElementById('valor-mobiliario');
     const elementoTransporte = document.getElementById('valor-transporte');
     const elementoEquipo = document.getElementById('valor-equipo');
+    const elementoDepA = document.getElementById('valor-depA');
     const elementoActivosFijos = document.getElementById('valor-activos-fijos');
     const elementoTotalActivos = document.getElementById('valor-total-activos');
     const elementoCuentasPorPagar = document.getElementById('valor-cuentas-por-pagar');
     const elementoImpuestos = document.getElementById('valor-impuestos');
     const elementoPasivosCorrientes = document.getElementById('valor-pasivos-corrientes');
     const elementoTotalPasivos = document.getElementById('valor-total-pasivos');
+    const elementoPerdidasAcumuladas = document.getElementById('valor-perdidas-acumuladas');
     const elementoTotalCapital = document.getElementById('valor-total-capital');
     const elementoFinan = document.getElementById('valor-finan');
     const elementoCapitalxFinan = document.getElementById('valor-capital_Finan');
 
     //Proforma
+    const elementoEfectivoP = document.getElementById('valor-efectivoP');
     const elementoCxCp = document.getElementById('valor-cxcp');
     const elementoAcp = document.getElementById('valor-acp');
+    const elementoInventario_proforma = document.getElementById('valor-ip');
     const elementoMobiliario_proforma = document.getElementById('valor-mobiliario-proforma');
     const elementoTransporte_proforma = document.getElementById('valor-transporte-proforma');
     const elementoEquipo_proforma = document.getElementById('valor-equipo-proforma');
+    const elementoDepA_proforma = document.getElementById('valor-depAP');
     const elementoAfnp = document.getElementById('valor-afnp');
     const elementoTotalActivos_proforma = document.getElementById('valor-total-activos-proforma');
     const elementoCxpp = document.getElementById('valor-cxpp');
     const elementoImpuestoP = document.getElementById('valor-impuestoP');
     const elementoTotalProforma = document.getElementById('valor-total-pcp');
     const elementoTotalPasivos_proforma = document.getElementById('valor-total-pp');
+    const elementoPerdidas_proforma = document.getElementById('valor-perdidas-proforma');
     const elementoCapital_proforma = document.getElementById('valor-capital-proforma');
     const elementoFinan_proforma = document.getElementById('valor-finan-proforma');
     const elementoCapitalxFinan_proforma = document.getElementById('valor-capital_FinanP');
 
     // Mostrar los valores en el HTML
     
+    elementoEfectivo.textContent = `$ ${efectivoT.toFixed(2)}`;
     elementoInventario.textContent = `$ ${inventario.toFixed(2)}`;
     elementoCuentasPorCobrar.textContent = `$ ${cuentas_por_cobrar.toFixed(2)}`;
     elementoActivosCorrientes.textContent = `$ ${total_activos_corrientes.toFixed(2)}`;
     elementoMobiliario.textContent = `$ ${mobiliario.toFixed(2)}`;
     elementoTransporte.textContent = `$ ${transporte.toFixed(2)}`;
     elementoEquipo.textContent = `$ ${equipo.toFixed(2)}`;
+    elementoDepA.textContent = `$ ${depA.toFixed(2)}`;
     elementoActivosFijos.textContent = `$ ${total_activos_fijos.toFixed(2)}`;
     elementoTotalActivos.textContent = `$ ${total_activos.toFixed(2)}`;
     elementoCuentasPorPagar.textContent = `$ ${cuentas_por_pagar.toFixed(2)}`;
     elementoImpuestos.textContent = `$ ${impuestos.toFixed(2)}`;
     elementoPasivosCorrientes.textContent = `$ ${pasivos_corrientes.toFixed(2)}`;
     elementoTotalPasivos.textContent = `$ ${total_pasivos.toFixed(2)}`;
+    elementoPerdidasAcumuladas.textContent = `$ ${perdidas_acu.toFixed(2)}`;
     elementoTotalCapital.textContent = `$ ${total_capital.toFixed(2)}`;
     elementoFinan.textContent = `$ ${finan.toFixed(2)}`;
     elementoCapitalxFinan.textContent = `$ ${capitalxFinan.toFixed(2)}`;
 
     //Proforma
+    elementoEfectivoP.textContent = `$ ${efectivoP.toFixed(2)}`;
     elementoCxCp.textContent = `$ ${cxcp.toFixed(2)}`;
     elementoAcp.textContent = `$ ${acp.toFixed(2)}`;
+    elementoInventario_proforma.textContent = `$ ${inventario_proforma.toFixed(2)}`;
     elementoMobiliario_proforma.textContent = `$ ${mobiliario_proforma.toFixed(2)}`;
     elementoTransporte_proforma.textContent = `$ ${transporte_proforma.toFixed(2)}`;
     elementoEquipo_proforma.textContent = `$ ${equipo_proforma.toFixed(2)}`;
+    elementoDepA_proforma.textContent = `$ ${depA_proforma.toFixed(2)}`;
     elementoAfnp.textContent = `$ ${afnp.toFixed(2)}`;
     elementoTotalActivos_proforma.textContent = `$ ${total_activos_proforma.toFixed(2)}`;
     elementoCxpp.textContent = `$ ${cxpp.toFixed(2)}`;
     elementoImpuestoP.textContent = `$ ${impuestoP.toFixed(2)}`;
     elementoTotalProforma.textContent = `$ ${total_proforma.toFixed(2)}`;
     elementoTotalPasivos_proforma.textContent = `$ ${total_pasivos_proforma.toFixed(2)}`;
+    elementoPerdidas_proforma.textContent = `$ ${perdidas_proforma.toFixed(2)}`;
     elementoCapital_proforma.textContent = `$ ${capital_proforma.toFixed(2)}`;
     elementoFinan_proforma.textContent = `$ ${finan_proforma.toFixed(2)}`;
     elementoCapitalxFinan_proforma.textContent = `$ ${capitalxFinan_proforma.toFixed(2)}`;

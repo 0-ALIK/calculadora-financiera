@@ -9,7 +9,7 @@ const ventasdata = obtenerLocalStorage('ventas');
 const activosdata = obtenerLocalStorage('activos');
 const productosdata = obtenerLocalStorage('productos');
 
-const calcularVentas = () => {
+export const calcularVentas = () => {
     let totalVentas = 0;
     let cantidadcompras = 0;
 
@@ -29,7 +29,7 @@ const calcularVentas = () => {
 }
 
 
-const CalcularCostosFijos = () => {
+export const CalcularCostosFijos = () => {
     let costosFijos = 0;
     let salario = 0;
     let renta = 0;
@@ -71,7 +71,7 @@ const CalcularCostosFijos = () => {
 }
 
 
-const calcularCostosVariantes = () => {
+export const calcularCostosVariantes = () => {
     let costosVariantes = 0;
     let inventarioI = 0;
     let invertarioF = 0;
@@ -96,7 +96,7 @@ const calcularCostosVariantes = () => {
 
 }
 
-const calcularUtilidadBruta = () => {
+export const calcularUtilidadBruta = () => {
     let utilidadBruta = 0;
     let costofijo = 0;
     let costovarieante = 0;
@@ -112,7 +112,7 @@ const calcularUtilidadBruta = () => {
 
 }   
 
-const calcularGastosFijos = () => {
+export const calcularGastosFijos = () => {
     let gastosFijos = 0;
 
     costos_operaciondata.forEach(costos_operaciondata => {
@@ -124,7 +124,7 @@ const calcularGastosFijos = () => {
     return gastosFijos;
 }
 
-const calcularGastosVariantes = () => {
+export const calcularGastosVariantes = () => {
     let gastosVariantes = 0;
     let porcentaje_ventas2 = 0;
     let gastos_operativos = 0;
@@ -142,7 +142,7 @@ const calcularGastosVariantes = () => {
     return gastosVariantes;
 }
 
-const calcularUtilidadOperativa = () => {
+export const calcularUtilidadOperativa = () => {
     let utilidadOperativa = 0;
     let gastosFijos = 0;
     let gastosVariantes = 0;
@@ -157,7 +157,7 @@ const calcularUtilidadOperativa = () => {
     return utilidadOperativa;
 }
 
-const calcularGastosporInteres = () => {
+export const calcularGastosporInteres = () => {
     let monto = 40000;
     let tasa_interes_anual = 0.08;
     let n = 12;
@@ -179,7 +179,7 @@ const calcularGastosporInteres = () => {
 
 }
 
-const calcularUtilidadNeta = () => {
+export const calcularUtilidadNeta = () => {
     let utilidadNeta = 0;
 
 
@@ -188,7 +188,7 @@ const calcularUtilidadNeta = () => {
     return utilidadNeta
 }
 
-const calcularUtilidadmenosImpuestos = () => {
+export const calcularUtilidadmenosImpuestos = () => {
     let umi = 0;
 
     umi = 0.25 * calcularUtilidadNeta();
@@ -196,7 +196,7 @@ const calcularUtilidadmenosImpuestos = () => {
     return umi
 }
 
-const calcularUDI = () => { 
+export const calcularUDI = () => { 
     let udi = 0;
 
     udi = calcularUtilidadNeta() - calcularUtilidadmenosImpuestos();
@@ -206,7 +206,7 @@ const calcularUDI = () => {
 
 //Estadpe de resultados profroma
 
-const calcularPronosticoVentas = () => {
+export const calcularPronosticoVentas = () => {
     let pronostico_ventas  = 0;
     let p1 = 5.50
     let p2 = 5.50
@@ -236,7 +236,7 @@ const calcularPronosticoVentas = () => {
     return pronostico_ventas
 }
 
-const calcularPronosticoCostos = () => {
+export const calcularPronosticoCostos = () => {
     let pronostico_costos = 0;
     let porcentaje_ventas1 = 0;
     let inventarioI = 0;
@@ -260,7 +260,7 @@ const calcularPronosticoCostos = () => {
     return pronostico_costos
 }
 
-const calcularPronosticoUB = () => {
+export const calcularPronosticoUB = () => {
     let pronostico_UB = 0;
 
     pronostico_UB = (calcularPronosticoVentas() - ( calcularPronosticoCostos() + 17300.00 ));
@@ -268,7 +268,7 @@ const calcularPronosticoUB = () => {
     return pronostico_UB
 }
 
-const calcularPronosticoGastos = () => {
+export const calcularPronosticoGastos = () => {
     let pronostico_gastos = 0;
     let porcentaje_ventas2 = 0;
     let gastos_operativos = 0;
@@ -285,7 +285,7 @@ const calcularPronosticoGastos = () => {
     return pronostico_gastos
 }
 
-const calcularPronosticoUO = () => {
+export const calcularPronosticoUO = () => {
     let pronostico_UO = 0;
 
     pronostico_UO = (calcularPronosticoUB() - (calcularPronosticoGastos() + 4700.00));
@@ -293,7 +293,7 @@ const calcularPronosticoUO = () => {
     return pronostico_UO
 }
 
-const calcularPronosticoUN = () => {
+export const calcularPronosticoUN = () => {
     let pronostico_UN = 0;
 
     pronostico_UN = calcularPronosticoUO() - 48785.61;
@@ -301,7 +301,7 @@ const calcularPronosticoUN = () => {
     return pronostico_UN
 }
 
-const calcularPronosticoUMI = () => {
+export const calcularPronosticoUMI = () => {
     let pronostico_umi = 0;
 
     pronostico_umi = 0.25 * calcularPronosticoUN();
@@ -309,7 +309,7 @@ const calcularPronosticoUMI = () => {
     return pronostico_umi
 }
 
-const calcularPronosticoUDI = () => {
+export const calcularPronosticoUDI = () => {
     let pronostico_udi = 0;
 
     pronostico_udi = calcularPronosticoUN() - calcularPronosticoUMI();
@@ -317,7 +317,7 @@ const calcularPronosticoUDI = () => {
     return pronostico_udi
 }
 
-const mostrarValoresEnHTML = () => {
+ export const mostrarValoresEnHTML = () => {
     const ventas = calcularVentas();
     const costos = CalcularCostosFijos();
     const costos_variantes = calcularCostosVariantes();

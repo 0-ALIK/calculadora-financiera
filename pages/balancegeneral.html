@@ -80,13 +80,13 @@
                 <td class="px-6 py-4 whitespace-nowrap"></td>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Efectivo</td>
-                <td class="px-6 py-4 whitespace-nowrap">$ 15000</td>
-                <td class="px-6 py-4 whitespace-nowrap">$ 15000</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-efectivo"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-efectivoP"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Inventario</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-inventario"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$ 1032692.00</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-ip"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Cuentas por cobrar</td>
@@ -120,8 +120,8 @@
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Depreciación acumulada</td>
-                <td class="px-6 py-4 whitespace-nowrap">$ 28000</td>
-                <td class="px-6 py-4 whitespace-nowrap">$ 24000</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-depA"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-depAP"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap font-semibold">Total activos fijos netos</td>
@@ -166,12 +166,12 @@
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Impuestos</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-impuestos"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-impuestoP"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Total pasivos corrientes</td>
                 <td class="px-6 py-4 whitespace-nowrap"><span id="valor-pasivos-corrientes"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-total-pcp"></span></td>
               </tr>
               <tr>
                 <td class="px-6 py-4 whitespace">Pasivo fijos</td>
@@ -191,7 +191,7 @@
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap font-bold">Total pasivo</td>
                 <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-pasivos"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap font-bold">$</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-pp"></span></td>
               </tr>
             </tbody>
           </table>
@@ -208,20 +208,26 @@
               </tr>
             </thead>
             <tbody class="">
-              <tr>
-                <td class="px-6 py-4 whitespace-nowrap">Inversión inicial</td>
-                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-inversion-i"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
-              </tr>
+              
               <tr>
                 <td class="px-6 py-4 whitespace-nowrap">Pérdidas acumuladas</td>
-                <td class="px-6 py-4 whitespace-nowrap">$ 6038.21</td>
-                <td class="px-6 py-4 whitespace-nowrap">$</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-perdidas-acumuladas"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-perdidas-proforma"></span></td>
               </tr>
               <tr>
-                <td class="px-6 py-4 whitespace-nowrap font-bold">Total capital</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold">Capital</td>
                 <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-capital"></span></td>
-                <td class="px-6 py-4 whitespace-nowrap font-bold">$</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-capital-proforma"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">Finan. Externo</td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-finan"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap"><span id="valor-finan-proforma"></span></td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap font-bold">Total Capital</td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-capital_Finan"></span></td>
+                <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-capital_FinanP"></span></td>
               </tr>
             </tbody>
           </table>
