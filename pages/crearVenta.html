@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Crear Venta</title>
+</head>
+<body>
+
+    <main class="flex justify-center items-center bg-fondo h-screen flex-col gap-5">
+
+        <form class="w-1/2 p-10 bg-base-200" id="form">
+
+            <h2 class="text-2xl font-bold mb-5 text-center">Registrar nueva entrada (Venta)</h2>
+
+            <div class="flex flex-col gap-5">
+
+                <!-- 
+                {
+                    "fecha": "01\/08\/2022",
+                    "transaccion": 26,
+                    "producto": 1005,
+                    "cantidad": 16,
+                    "precio": 5.25,
+                    "monto": 84,
+                    "se_otorga_credito": "sí",
+                    "abono_50": 42,
+                    "fecha_cancelacion": "01\/18\/2022",
+                    "cancelacion": 42
+                },
+                -->
+
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text">Fecha</span>
+                    </div>
+                    <input type="date" placeholder="Fecha" class="input input-bordered w-full" id="fecha" />
+                </label>
+
+                <select class="select select-bordered w-full" id="producto-codigo">
+                    <option disabled selected>Producto</option>
+                </select>
+                
+                <input type="number" placeholder="Cantidad" class="input input-bordered w-full" id="cantidad" />
+
+                <input type="number" placeholder="Precio" class="input input-bordered w-full" disabled id="precio" />
+
+                <div class="flex items-center justify-between gap-10">
+                    <div class="form-control w-52">
+                        <label class="label cursor-pointer">
+                            <span class="label-text">Se otorga crédito</span>
+                            <input type="checkbox" class="toggle toggle-primary" id="credito" />
+                        </label>
+                    </div>
+                    <label class="form-control w-full">
+                        <div class="label">
+                            <span class="label-text">Fecha dew cancelación</span>
+                        </div>
+                        <input type="date" placeholder="Type here" class="input input-bordered w-full" id="fecha-cancelacion" />
+                    </label>
+                </div>
+
+            </div>
+
+            <button class="btn btn-primary mt-5" type="submit">Agregar</button>
+
+        </form>
+
+        <div role="alert" class="alert hidden w-1/2" id="alerta">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="h-6 w-6 shrink-0 stroke-current">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span></span>
+        </div>        
+
+    </main>
+
+<script src="../scripts/crearVenta.js" type="module"></script>
+    
+</body>
+</html>
