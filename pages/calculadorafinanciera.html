@@ -7,135 +7,153 @@
     <link rel="stylesheet" href="../style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="h-screen w-screen overflow-hidden">
     <nav>
-      <div class="navbar bg-base-100">
-          <div class="flex-1 ">
+        <div class="navbar bg-base-100">
+            <div class="flex-1 ">
             <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
-          </div>
-          <div class="">
-            <ul class="menu menu-horizontal px-1 ml-20">
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></a>
-                    <div class="tooltiptext">Inicio</div>
-                </li>                     
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/calculadorafinanciera.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calculator"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M8 14l0 .01" /><path d="M12 14l0 .01" /><path d="M16 14l0 .01" /><path d="M8 17l0 .01" /><path d="M12 17l0 .01" /><path d="M16 17l0 .01" /></svg></a>
-                    <div class="tooltiptext">Calculadora financiera</div>
-                </li>
+            </div>
+            <div class="">
+                <ul class="menu menu-horizontal px-1 ml-20">
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></a>
+                        <div class="tooltiptext">Inicio</div>
+                    </li>                     
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/calculadorafinanciera.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calculator"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M8 14l0 .01" /><path d="M12 14l0 .01" /><path d="M16 14l0 .01" /><path d="M8 17l0 .01" /><path d="M12 17l0 .01" /><path d="M16 17l0 .01" /></svg></a>
+                        <div class="tooltiptext">Calculadora financiera</div>
+                    </li>
 
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/activosfijos.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-arcs-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M7 12a5 5 0 1 0 5 -5" /><path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957" /></svg></a>
-                    <div class="tooltiptext">Activos Fijos</div>
-                </li>
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/balancegeneral.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-abacus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 3v18" /><path d="M19 21v-18" /><path d="M5 7h14" /><path d="M5 15h14" /><path d="M8 13v4" /><path d="M11 13v4" /><path d="M16 13v4" /><path d="M14 5v4" /><path d="M11 5v4" /><path d="M8 5v4" /><path d="M3 21h18" /></svg></a>
-                    <div class="tooltiptext">Balance General</div>
-                </li>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/activosfijos.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-arcs-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M7 12a5 5 0 1 0 5 -5" /><path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957" /></svg></a>
+                        <div class="tooltiptext">Activos Fijos</div>
+                    </li>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/balancegeneral.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-abacus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 3v18" /><path d="M19 21v-18" /><path d="M5 7h14" /><path d="M5 15h14" /><path d="M8 13v4" /><path d="M11 13v4" /><path d="M16 13v4" /><path d="M14 5v4" /><path d="M11 5v4" /><path d="M8 5v4" /><path d="M3 21h18" /></svg></a>
+                        <div class="tooltiptext">Balance General</div>
+                    </li>
 
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/estadoresultado.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-article"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 8h10" /><path d="M7 12h10" /><path d="M7 16h10" /></svg></a>
-                    <div class="tooltiptext">Estado de Resultado</div>
-                </li>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/estadoresultado.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-article"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 8h10" /><path d="M7 12h10" /><path d="M7 16h10" /></svg></a>
+                        <div class="tooltiptext">Estado de Resultado</div>
+                    </li>
 
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/razonesFinancieras.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M4 20h14" /></svg></a>
-                    <div class="tooltiptext">Razones Financieras</div>
-                </li>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/razonesFinancieras.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M4 20h14" /></svg></a>
+                        <div class="tooltiptext">Razones Financieras</div>
+                    </li>
 
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/puntoequilibrio.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-timeline"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 16l6 -7l5 5l5 -6" /><path d="M15 14m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M10 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M20 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></a>
-                    <div class="tooltiptext">Punto de Equilibrio</div>
-                </li>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/puntoequilibrio.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-timeline"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 16l6 -7l5 5l5 -6" /><path d="M15 14m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M10 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M20 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></a>
+                        <div class="tooltiptext">Punto de Equilibrio</div>
+                    </li>
 
-                <li class="tooltip">
-                    <a href="http://localhost:5173/pages/presupuesto.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17l0 -5" /><path d="M12 17l0 -1" /><path d="M15 17l0 -3" /></svg></a>
-                    <div class="tooltiptext">Presupuesto de Caja</div>
-                </li>
-            </ul>
-          </div>
+                    <li class="tooltip">
+                        <a href="http://localhost:5173/pages/presupuesto.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17l0 -5" /><path d="M12 17l0 -1" /><path d="M15 17l0 -3" /></svg></a>
+                        <div class="tooltiptext">Presupuesto de Caja</div>
+                    </li>
+                </ul>
+            </div>
         </div> 
-    </nav>   
+    </nav>
+
     <div class="mt-5 ">
         <h1 class="text-5xl p-5 font-bold text-blue-300">Calculadora Financiera</h1>
     </div>
-    <div class="flex flex-wrap gap-3  justify-center lg:m-10">
-      <div class="bg-[#1F2937] p-10 rounded-xl h-max-[400px] h-max w-[600px] ">
-        <section class="flex justify-start mb-5">
-          <div class="bg-[#1F2937]  rounded-xl w-12 h-12">
-            <img src="../assets/calculator.webp" alt="Imagen" width="40px">
-          </div>
-          <section>
-            <h1>Calculadora Financiera</h1>
-            <p>Este es un proyecto de prueba para la calculadora financiera</p>
-          </section>   
-        </section>
-        <form class="  grid gap-6" id="id_form" action="" method="post">
-          <label class="bg-[#374151] input input-bordered flex items-center gap-2">
-              <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo">
-          </label>
-          <label class="bg-[#374151] input input-bordered flex items-center gap-2">
-              <input class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes">
-          </label>
-          <label class="bg-[#374151] input input-bordered flex items-center gap-2">
-              <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo de Pago">
-          </label>
-          <div class="flex justify-between">
-            <select class="bg-[#374151] rounded-md p-2" name="name_frec_pago" id="id_frec_pago">
-              <option value="52" >Semanal</option>
-              <option value="26">Quincenal</option>
-              <option value="12" selected>Mensual</option>
-              <option value="4">Trimestral</option>
-              <option value="1">Anual</option>
-            </select>
-            <button class="text-white bg-[#5045E5] rounded-md w-64" type="submit">Calcular</button>
-          </div>
-          
-      </form>
-      </div>
-        
-        <div class="bg-[#1F2937]  rounded-xl">
-          <div id="chart" class="p-8 w-[900px]">
+    
+    <section class="bg-fondo h-full bg-no-repeat bg-cover flex flex-col items-center">
+
+        <div class="flex p-5 w-fit gap-10 justify-center items-center bg-base-300/60 h-fit backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg">
             
-          </div>
-        </div>
+            <section class="">
+                <form class="bg-base-300 items-center p-5 flex flex-col rounded-xl w-fit h-fit gap-2" id="id_form" action="" method="post">
+                
+                    <section class="flex justify-start mb-5 items-center">
+                        <div class=" w-12 h-12 items-center">
+                            <img src="../assets/calculator.webp" alt="Imagen" width="40px">
+                        </div>
+                        <section>
+                            <h1 class="font-medium w-60">Ingrese los datos para calcular los periodos de pago</h1>
+                        </section>   
+                    </section>
+
+                    <label class="input input-md input-bordered flex items-center gap-2">
+                        <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo">
+                    </label>
+                    <label class="input input-md input-bordered flex items-center gap-2">
+                        <input class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes">
+                    </label>
+                    <label class="input input-md input-bordered flex items-center gap-2">
+                        <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo de Pago">
+                    </label>
+                        
+                    <!--select-->
+                    <div class="flex gap-2 justify-between">
+
+                        <select class="bg-base-100 rounded-md p-2" name="name_frec_pago" id="id_frec_pago">
+                            <option value="52" >Semanal</option>
+                            <option value="26">Quincenal</option>
+                            <option value="12" selected>Mensual</option>
+                            <option value="4">Trimestral</option>
+                            <option value="1">Anual</option>
+                        </select>
+                        <button class="text-white btn btn-primary" type="submit">Calcular</button>
+                    </div> 
+                    
+                </form>
+            </section>
         
-    </div>
-    
-    <div class="collapse justify-center collapse-arrow">
-      <input type="checkbox" />
-      <div class="collapse-title text-xl font-medium text-center bg-[#1F2937] rounded-md ">Tabla de Amortizacion</div>
-      <div class="collapse-content flex flex-wrap justify-center bg-[#1F2937] rounded-md">
-        <section class="  p-6 rounded-xl w-[600px] ">
-          <table  class="lg:table md:table-md sm:table-xs">
-            <!-- head -->
-            <thead>
-              <tr>
-                <th>Periodo</th>
-                <th>Pago <br> Mensual</th>
-                <th>Interes</th>
-                <th>Capital</th>
-                <th>Saldo <br> Pendiente</th>
-              </tr>
-            </thead>
-            <tr>
-              <th>0</th>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-              <td id="id_monto_prestamo_table"></td>
-              </tr>
-            <tbody id="id_result">
-              
-            </tbody>
-          </table>
-        </section>
+            <div class="collapse collapse-arrow w-fit">
+                <input type="checkbox" />
+                <div class="collapse-title text-white w-fit text-lg h-fit font-semibold text-center bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl m-2 ">
+                    <h2>
+                        Tabla de Amortizacion
+                    </h2> 
+                </div>
+                
+                <div class="collapse-content flex flex-wrap justify-center">
+                    <section class=" p-2 h-fit">
+                        
+                        <table class="table table-xs">
+                            <!-- head -->
+                            <thead>
+                            <tr>
+                                <th>Periodo</th>
+                                <th>Pago <br> Mensual</th>
+                                <th>Interes</th>
+                                <th>Capital</th>
+                                <th>Saldo <br> Pendiente</th>
+                            </tr>
+                        </thead>
+                        
+                        <tr>
+                                <th>0</th>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td id="id_monto_prestamo_table"></td>
+                            </tr>
+                            
+                            <tbody id="id_result">
+                                
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
 
-      </div>
-    </div>
+                <!--resultados-->
+                <div class=" mt-5 m-2 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl">
+                    <div id="chart" class="p-8 w-fit h-fit">
+                        <h4></h4>
+                        <p id="id_result"></p>
+                    </div>
+                </div> 
+            </div>
+            
+        </div>
+            
     
-
-    <p id="id_result"></p>
+    </section>
     <script src="../scripts/calculadorfinanciera.js" type="module"></script>
 
 </body>
