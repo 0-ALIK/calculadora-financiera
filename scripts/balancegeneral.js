@@ -3,6 +3,7 @@ import { calcularPronosticoVentas } from "./estadoresultado";
 import { calcularPronosticoUMI } from "./estadoresultado";
 import { calcularPronosticoUDI } from "./estadoresultado";
 import { calcularUDI } from "./estadoresultado";
+import { calculate } from "./pcaja";
 
 const costos_operaciondata = obtenerLocalStorage('costos_operacion');
 const comprasdata = obtenerLocalStorage('compras');
@@ -16,7 +17,8 @@ const activosdata = obtenerLocalStorage('activos');
         let efectivo = 61312.00;
         let efectivoT = 0;
 
-        efectivoT = efectivo - 0;
+        efectivoT = calculate('ntotal');
+        console.log(calculate());
 
         return efectivoT;
     }

@@ -1,4 +1,4 @@
-function calculate() {
+ export function calculate() {
   // Variables 
   let calculateBtn = document.getElementById("calculate-btn");
   let result = document.getElementById("result");
