@@ -214,21 +214,14 @@ const activosdata = obtenerLocalStorage('activos');
 
     export const calcularDeudasLargoPlazo = () => {
         let deudasLargoPlazo = 0;
-        let saldo = 0;
-        let periodo = 0;
+        let saldos = [];
         let n = 0;
-        let capital = 0;
-        let cant_pagos = 0;
 
-        capital = obtenerLocalStorage('capital_mensual_c');
-        saldo = obtenerLocalStorage('saldo_c');
-        periodo = obtenerLocalStorage('periodos_c');
-        cant_pagos = obtenerLocalStorage('cant_pagos_c');
+        saldos = obtenerLocalStorage('saldos_c');
 
-        for(n; n < cant_pagos; n++){
-            saldo -= capital;
-            if(n == 36){
-                deudasLargoPlazo = saldo;
+        for(n; n < saldos.length; n++){
+            if(n == 35){
+                deudasLargoPlazo = saldos[n];
             }
         }
 
@@ -425,6 +418,30 @@ const activosdata = obtenerLocalStorage('activos');
         return totalPCP
     }
 
+    export const calcularDLPP = () => {
+        let dlpp = 0;
+        let saldos = [];
+        let n = 0;
+
+        saldos = obtenerLocalStorage('saldos_c');
+
+        for(n; n < saldos.length; n++){
+            if(n == 47){
+                dlpp = saldos[n];
+            }
+        }
+
+        return dlpp;
+    }
+
+    export const calcularTotalPasivoFijosP = () => {
+        let totalPasivoFijosP = 0;
+
+        totalPasivoFijosP = calcularDLPP();
+
+        return totalPasivoFijosP;
+    }
+
     export const calcularTotalPasicoP = () => {
         let totalPasivoP = 0;
 
@@ -492,6 +509,8 @@ const mostrarValoresEnHTML = () => {
     const capitalxFinan = calcularCapitalxFinan();
     //plus
     const totalPasivoFijos = calcularTotalPasivoFijos();
+    const dlpp = calcularDLPP();
+    const totalPasivoFijosP = calcularTotalPasivoFijosP();
 
     //Proforma
     const efectivoP = calcularEfectivoP();
@@ -539,6 +558,8 @@ const mostrarValoresEnHTML = () => {
     const elementoCapitalxFinan = document.getElementById('valor-capital_Finan');
     //plus
     const elementoTotalPasivoFijos = document.getElementById('valor-total-pasivo-fijos');
+    const elementoDLPP = document.getElementById('valor-dlpp');
+    const elementoTotalPasivoFijosP = document.getElementById('valor-total-pasivo-fijos-p');
 
     //Proforma
     const elementoEfectivoP = document.getElementById('valor-efectivoP');
@@ -585,6 +606,8 @@ const mostrarValoresEnHTML = () => {
     elementoCapitalxFinan.textContent = `$ ${capitalxFinan.toFixed(2)}`;
     //plus
     elementoTotalPasivoFijos.textContent = `$ ${totalPasivoFijos}`;
+    elementoDLPP.textContent = `$ ${dlpp}`;
+    elementoTotalPasivoFijosP.textContent = `$ ${totalPasivoFijosP}`;
 
     //Proforma
     elementoEfectivoP.textContent = `$ ${efectivoP}`;

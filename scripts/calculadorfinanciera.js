@@ -104,7 +104,7 @@ function tablaAmortizacion(monto_prestamo, tasa_interes, plazo_prestamo, frec_pa
 
       // Guardar en localStorage
       //guardarEnLocalStorage("capital_mensual_c", capital_mensual);
-      guardarEnLocalStorage("saldo_c", saldo);
+      guardarEnLocalStorage("saldos_c", saldos);
       guardarEnLocalStorage("cant_pagos_c", cant_pagos);
       guardarEnLocalStorage("periodos_c", periodos);
       guardarEnLocalStorage("pago_periodico_c", pago_periodico);
