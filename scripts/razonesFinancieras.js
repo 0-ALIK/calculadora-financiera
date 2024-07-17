@@ -21,19 +21,11 @@
 
 ✅Concentración del endeudamiento en el corto plazo = pasivo corriente / pasivo total​
 
-Cobertura de interés = utilidades antes de intereses e impuestos / intereses
-
 === Índices de rendimiento ===
 
 ✅Marge de utilidad bruta = (ventas - costos de los bienes vendidos) / ventas = utilidad bruta / ventas
 
-Margen de utilidad operativa = utilidad operativa / ventas
-
-Margen de utilidad neta = ganancias disponibles para los accionistas comunes / ventas
-
-=== Razones de mercado ===
-
-Relación P/G = Precio de mercado por acción común / Ganancias por acción ​
+✅Margen de utilidad operativa = utilidad operativa / ventas
 
 */ 
 import {
@@ -63,64 +55,65 @@ console.log('Pasivos:', obtenerPasivos());
 const razones_financieras = {
     'razones_liquidez': [
         {
+            tipo: 'valor',
             nombre: 'Liquidez corriente',
             valor: obtenerActivosCorrientes() / obtenerPasivosCorrientes()
         },
         {
+            tipo: 'valor',
             nombre: 'Razón rápida',
             valor: (obtenerActivosCorrientes() - obtenerInventarioTotal()[1]) / obtenerPasivosCorrientes()
         }
     ],
     'indices_actividad': [
         {
+            tipo: 'valor',
             nombre: 'Rotación de inventario',
             valor: obtenerCostoBienesVendidos() / obtenerInventarioTotal()[1]
         },
         {
+            tipo: 'dias',
+            nombre: 'Edad promedio de inventario',
+            valor: 365 / (obtenerCostoBienesVendidos() / obtenerInventarioTotal()[1])
+        },
+        {
+            tipo: 'dias',
             nombre: 'Periodo promedio de cobro',
             valor: obtenerCuentasPorCobrar() / (obtenerVentasAnuales(2022) / 365)
         },
         {
+            tipo: 'dias',
             nombre: 'Periodo promedio de pago',
             valor: obtenerCuentasPorPagar() / (obtenerComprasAnuales(2022) / 365)
         },
         {
+            tipo: 'valor',
             nombre: 'Rotación de activos totales',
             valor: obtenerVentasAnuales(2022) / obtenerActivosFijos()
         }
     ],
     'razones_endeudamiento': [
         {
+            tipo: 'valor',
             nombre: 'Nivel de endeudamiento',
             valor: (obtenerActivosCorrientes() + obtenerActivosFijos()) / (obtenerPasivos() + obtenerPasivosCorrientes())
         },
         {
+            tipo: 'porcentaje',
             nombre: 'Concentración del endeudamiento en el corto plazo',
             valor: obtenerPasivosCorrientes() / (obtenerPasivos() + obtenerPasivosCorrientes())
-        },
-        {
-            nombre: 'Cobertura de interés',
-            valor: 0
         }
     ],
     'indices_rendimiento': [
         {
+            tipo: 'porcentaje',
             nombre: 'Margen de utilidad bruta',            
             valor: (obtenerVentasAnuales(2022) - obtenerCostoBienesVendidos()) / obtenerVentasAnuales(2022)
         },
         {
+            tipo: 'porcentaje',
             nombre: 'Margen de utilidad operativa',
-            valor: 0
-        },
-        {
-            nombre: 'Margen de utilidad neta',
-            valor: 0
-        }
-    ],
-    'razones_mercado': [
-        {
-            nombre: 'Relación P/G',
-            valor: 0
+            valor: (obtenerVentasAnuales(2022) / obtenerPasivos()) / obtenerVentasAnuales(2022)
         }
     ]
 };
@@ -135,11 +128,21 @@ const renderRazonesFinancieras = (tipo) => {
     razones.forEach((razon, index) => {
         const tr = document.createElement('tr');
 
+        console.log(razon.nombre, razon.valor);
+
         tr.innerHTML = `
             <th class="text-2xl py-6 px-10 text-gray-300 font-medium" >${index + 1}</th>
             <td class="text-2xl py-6 px-10 text-gray-300 font-medium" >${razon.nombre}</td>
             <td>
-                <p class="text-xl text-secondary font-bold">${razon.valor.toFixed(2)}</p>
+                <p class="text-xl text-secondary font-bold">
+                ${
+                    razon.tipo === 'valor' 
+                        ? razon.valor.toFixed(2) 
+                    : razon.tipo === 'dias' 
+                        ? razon.valor.toFixed(2) + ' días' 
+                        : (razon.valor * 100).toFixed(2) + '%'
+                }
+                </p>
             </td>
         `;
 

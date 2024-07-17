@@ -11,11 +11,11 @@
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
-                <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+                <a class="btn btn-ghost text-xl" href="./index.html">Calculadora AF</a>
             </div>
             <div class="">
                 <ul class="menu menu-horizontal px-1 ml-20">
-                    <div class="dropdown dropdown-bottom">
+                    <div class="dropdown dropdown-bottom bg-primary rounded-md">
                         <div tabindex="0" role="button" class="btn btn-ghost">
                             <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
                         </div>
@@ -56,7 +56,9 @@
                     </li>
 
                     <li class="tooltip tooltip-bottom" data-tip="Entradas y salidas">
-                        <a href="http://localhost:5173/pages/entradasSalidas.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-in-out"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7v8a1 1 0 0 0 1 1h8" /><path d="M12 10l2 -2l-2 -2" /><path d="M16 11h-2a1 1 0 0 0 -1 1v2" /><path d="M8 11v2a1 1 0 0 0 1 1h2" /><path d="M12 14l2 2l-2 2" /><path d="M14 13h2a1 1 0 0 0 1 -1v-2" /></svg></a>
+                        <a href="http://localhost:5173/pages/entradasSalidas.html">
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-up-down"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 3l0 18" /><path d="M10 6l-3 -3l-3 3" /><path d="M20 18l-3 3l-3 -3" /><path d="M17 21l0 -18" /></svg>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -70,6 +72,43 @@
             <h2 class="text-2xl font-bold mb-5 text-center">Registrar nueva salida (Compra)</h2>
 
             <div class="flex flex-col gap-5">
+
+                <!-- 
+                {
+                "fecha": "02\/14\/2022",
+                "producto": 1004,
+                "cantidad": 100,
+                "costo_unitario": 1.75,
+                "total": 175,
+                "abono": 87.5,
+                "fecha_cancelacion": "03\/01\/2022",
+                "cancelacion": 87.5
+                },
+                -->
+
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text">Fecha</span>
+                    </div>
+                    <input type="date" placeholder="Fecha" class="input input-bordered w-full" id="fecha" />
+                </label>
+
+                <select class="select select-bordered w-full" id="producto-codigo">
+                    <option disabled selected>Producto</option>
+                </select>
+
+                <input type="number" placeholder="Cantidad" class="input input-bordered w-full" id="cantidad" />
+
+                <p>Precio: <samp class="font-bold text-lg" id="precio"></samp></p>
+
+                <p>Total: <samp class="font-bold text-lg" id="total"></samp></p>
+
+                <label class="form-control w-full">
+                    <div class="label">
+                        <span class="label-text">Fecha de cancelación</span>
+                    </div>
+                    <input type="date" placeholder="Type here" class="input input-bordered w-full" id="fecha-cancelacion" />
+                </label>
 
             </div>
 
@@ -86,5 +125,6 @@
 
     </main>
 
+    <script type="module" src="../scripts/crearCompra.js"></script>
 </body>
 </html>

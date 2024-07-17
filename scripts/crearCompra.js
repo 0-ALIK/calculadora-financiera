@@ -1,16 +1,15 @@
 const fecha = document.getElementById('fecha');
+const fechaCancelacion = document.getElementById('fecha-cancelacion');
 const productoCodigo = document.getElementById('producto-codigo');
 const cantidad = document.getElementById('cantidad');
 const precio = document.getElementById('precio');
 const total = document.getElementById('total');
-const credito = document.getElementById('credito');
-const fechaCancelacion = document.getElementById('fecha-cancelacion');
 const form = document.getElementById('form');
 
 import { guardarEnLocalStorage, obtenerLocalStorage } from './funciones_helpers';
 
 const productos = obtenerLocalStorage('productos');
-const ventas = obtenerLocalStorage('ventas');
+const compras = obtenerLocalStorage('compras');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -53,44 +52,41 @@ const mostrarAlerta = (mensaje, tipo) => {
 form.addEventListener('submit', e => {
     e.preventDefault();
 
-    if(fecha.value === '' || productoCodigo.value === '' || cantidad.value === '' || precio.textContent === '') {
+    if(fecha.value === '' || productoCodigo.value === '' || cantidad.value === '' || precio.textContent === '' || fechaCancelacion.value === '') {
         mostrarAlerta('Todos los campos son obligatorios', 'error');
         return;
     }
 
-    if(credito.checked && fechaCancelacion.value === '') {
-        mostrarAlerta('La fecha de cancelación es obligatoria', 'error');
-        return;
-    }
+    /* 
+    {
+    "fecha": "02\/14\/2022",
+    "producto": 1004,
+    "cantidad": 100,
+    "costo_unitario": 1.75,
+    "total": 175,
+    "abono": 87.5,
+    "fecha_cancelacion": "03\/01\/2022",
+    "cancelacion": 87.5
+    },
+    */
 
-    const transaccionNumero = ventas.length === 0 ? 1 : Math.max(...ventas.map(venta => venta.transaccion)) + 1;
+    const totalCalc = Number(cantidad.value) * Number(precio.textContent);
 
-    const monto = Number(cantidad.value) * Number(precio.textContent);
-
-    const date = new Date(fecha.value);
-    const fechaFormateada = `${date.getMonth() + 1}\/${date.getDate()}\/${date.getFullYear()}`;
-
-    const venta = {
-        fecha: fechaFormateada,
-        transaccion: transaccionNumero,
+    const compra = {
+        fecha: fecha.value,
         producto: Number(productoCodigo.value),
         cantidad: Number(cantidad.value),
-        precio: Number(precio.textContent),
-        monto,
-        se_otorga_credito: credito.checked ? 'sí' : 'no',
-        abono_50: credito.checked ? monto / 2 : monto,
-        fecha_cancelacion: credito.checked ? fechaCancelacion.value : '',
-        cancelacion: 0
+        costo_unitario: Number(precio.textContent),
+        total: totalCalc,
+        abono: totalCalc / 2,
+        fecha_cancelacion: fechaCancelacion.value,
+        cancelacion: totalCalc / 2
     };
 
-    console.log(venta);
+    compras.push(compra);
+    guardarEnLocalStorage('compras', compras);
 
-    ventas.push(venta);
-
-    guardarEnLocalStorage('ventas', ventas);
+    mostrarAlerta('Compra creada correctamente', 'exito');
     form.reset();
     total.textContent = '';
-    precio.textContent = '';
-
-    mostrarAlerta('Venta creada correctamente', 'success');
 });
