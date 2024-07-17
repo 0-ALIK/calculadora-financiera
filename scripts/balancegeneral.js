@@ -216,13 +216,20 @@ const activosdata = obtenerLocalStorage('activos');
         let deudasLargoPlazo = 0;
         let saldo = 0;
         let periodo = 0;
-        let n = 36;
+        let n = 0;
+        let capital = 0;
+        let cant_pagos = 0;
 
+        capital = obtenerLocalStorage('capital_mensual_c');
         saldo = obtenerLocalStorage('saldo_c');
         periodo = obtenerLocalStorage('periodos_c');
+        cant_pagos = obtenerLocalStorage('cant_pagos_c');
 
-        if(periodo == n){
-            deudasLargoPlazo = saldo;
+        for(n; n < cant_pagos; n++){
+            saldo -= capital;
+            if(n == 36){
+                deudasLargoPlazo = saldo;
+            }
         }
 
         return deudasLargoPlazo;
