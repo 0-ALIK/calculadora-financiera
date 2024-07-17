@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Activos Fijos Netos</title>
+    <title>Razones financieras</title>
 </head>
-<body class="h-screen overflow-hidden">
+<body class="h-screen overflow-x-hidden w-screen font-sans ">
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
@@ -60,42 +60,48 @@
                 </ul>
             </div>
         </div> 
-    </nav>   
+    </nav> 
+    <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Razones</h1>
+    </div>
+    <p class="text-4xl text-secondary font-bold"></p>
+    <main class="w-full h-full bg-fondo bg-no-repeat bg-cover">
 
-    <section class="bg-fondo h-full bg-no-repeat bg-cover">
-        <div class="flex flex-col gap-5 p-5 h-full">
-            <div class="flex items-center gap-2">
-                <h1 class="text-5xl font-bold p-3 text-gray-200">Activos fijos Netos</h1>
-                <button onclick="cambiarDatos()" class="btn btn-xs btn-outline btn-primary btn-calcular-anos">
-                    <p class="text-xs">Cambiar datos</p>
-                </button>
-            </div>
-
-            <section class="flex flex-col justify-center bg-base-300/60 h-80 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg">
-                <div class="flex gap-5 p-4 justify-center py-2">
-                    <div class="flex flex-col gap-6 p-5">
-                        <div class="lista-activos flex flex-col px-10 gap-4"></div>
-                        <div class="flex gap-2">
-                            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Activo</p>
-                                <input type="text" class="grow pl-2 input-descripcion-activo" placeholder="Añadir nuevo activo" />
-                            </label>
-                            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Precio</p>
-                                <input type="text" class="grow pl-2 input-costo-activo" placeholder="$$$" />
-                                <button onclick="agregarActivo()" class="btn  btn-secondary text-gray-200 btn-sm btn-agregar-activo">Añadir</button>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-evenly bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
-                        <h2 class="text-4xl font-bold text-secondary">Valor total de los activos</h2>
-                        <p class="text-4xl font-bold text-gray-100 pl-8 valor-total">0</p>
-                    </div>
-                </div>
-            </section>
+        <div role="tablist" class="tabs tabs-md tabs-boxed m-1">
+            <a role="tab" data-tab="razones_liquidez"      class=" text-xs font-semibold tab tab-active ">Razones de liquidez</a>
+            <a role="tab" data-tab="indices_actividad"     class=" text-xs font-semibold tab">Índices de actividad</a>
+            <a role="tab" data-tab="razones_endeudamiento" class=" text-xs font-semibold tab">Razones de endeudamiento</a>
+            <a role="tab" data-tab="indices_rendimiento"   class=" text-xs font-semibold tab">Índices de rendimiento</a>
+            <a role="tab" data-tab="razones_mercado"       class=" text-xs font-semibold tab">Razones de mercado</a>
         </div>
-    </section>
 
-    <script src="../scripts/activosfijos.js" type="module"></script>
+        <section class=" flex flex-col items-center">
+            <div class="mt-5 flex flex-col p-10 items-center justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg h-fit w-8/12">
+    
+                <section class="">
+
+                    <div class="overflow-x-auto card bg-blue-300/10 w-fit px-5 p-5">
+                        <table class="table">
+                        <!-- head -->
+                        <thead>
+                            <tr>
+                            <th></th>
+                            <th class="text-4xl font-bold p-2 text-blue-300/90 ">Razón</th>
+                            <th class="text-4xl font-bold p-2 text-blue-300/90 ">Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenido">
+
+                        </tbody>
+                        </table>
+                    </div>
+
+                </section>
+            </div>
+        </section>     
+    </main>
+
+
+    <script src="../scripts/razonesFinancieras.js" type="module"></script>
 </body>
 </html>

@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./pages/**/*.{html,js}", "./components/**/*.{html,js}"],
+  content: ["./pages/**/*.{html,js}", './index.html', './scripts/**/*.{html,js}'],
   theme: {
     fontFamily: {
       sans: ['Montserrat, sans-serif']
+    },
+    backgroundImage: {
+      fondo: [ "url('/fondo.png')"]
     },
     extend: {},
   },
@@ -11,6 +14,6 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["light", "dark", "synthwave"],
+    themes: ["dark"],
   },
 }

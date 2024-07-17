@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Activos Fijos Netos</title>
-</head>
-<body class="h-screen overflow-hidden">
+    
+    <title>Balance General</title>
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
-                <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+              <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
             </div>
             <div class="">
                 <ul class="menu menu-horizontal px-1 ml-20">
@@ -59,43 +58,100 @@
                     </li>
                 </ul>
             </div>
-        </div> 
-    </nav>   
+          </div> 
+      </nav>
+</head>
+<body class="h-full w-full overflow-x-hidden">
+    <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Estado de resultado</h1>
+    </div>    
+      
+    <div class="flex justify-center gap-4 bg-fondo items-center bg-no-repeat bg-cover">
+        
+        <section class="flex px-8 w-fit justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-full">
 
-    <section class="bg-fondo h-full bg-no-repeat bg-cover">
-        <div class="flex flex-col gap-5 p-5 h-full">
-            <div class="flex items-center gap-2">
-                <h1 class="text-5xl font-bold p-3 text-gray-200">Activos fijos Netos</h1>
-                <button onclick="cambiarDatos()" class="btn btn-xs btn-outline btn-primary btn-calcular-anos">
-                    <p class="text-xs">Cambiar datos</p>
-                </button>
-            </div>
-
-            <section class="flex flex-col justify-center bg-base-300/60 h-80 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg">
-                <div class="flex gap-5 p-4 justify-center py-2">
-                    <div class="flex flex-col gap-6 p-5">
-                        <div class="lista-activos flex flex-col px-10 gap-4"></div>
-                        <div class="flex gap-2">
-                            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Activo</p>
-                                <input type="text" class="grow pl-2 input-descripcion-activo" placeholder="Añadir nuevo activo" />
-                            </label>
-                            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Precio</p>
-                                <input type="text" class="grow pl-2 input-costo-activo" placeholder="$$$" />
-                                <button onclick="agregarActivo()" class="btn  btn-secondary text-gray-200 btn-sm btn-agregar-activo">Añadir</button>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-evenly bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
-                        <h2 class="text-4xl font-bold text-secondary">Valor total de los activos</h2>
-                        <p class="text-4xl font-bold text-gray-100 pl-8 valor-total">0</p>
-                    </div>
-                </div>
-            </section>
+            <div class="p-2 rounded-lg shadow-lg mb-4">
+                <h2 class="text-xl font-semibold mb-2"></h2>
+                <table class="table bg-base-300/80 table-pin-rows table-pin-cols">
+                    <thead class="">
+                        <tr>
+                            <th class="p-2 text-left font-semibold text-white uppercase tracking-wider rounded-l-lg">Descripción</th>
+                            <th class="p-2 text-left font-semibold text-white uppercase tracking-wider">2022</th>
+                            <th class="p-2 text-left font-semibold text-white uppercase tracking-wider rounded-r-lg">Proforma 2023</th>
+                        </tr>
+                    </thead>
+                <tbody class=""> 
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Ingresos por ventas</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-ventas"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-unidades-vendidas"></span></td>
+                </tr>
+                    <tr>
+                        <td class="py-2 px-3 whitespace-nowrap">Menos: Costos de los bienes vendidos</td>
+                        <td class="py-2 px-3 whitespace-nowrap"></td>
+                        <td class="py-2 px-3 whitespace-nowrap"></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Costo fijo</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-costo-fijo"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap">$ 17300.00</span></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Costo variante</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-costo-variante"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-pronostico-costos"></span></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Utilidad bruta</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-utilidad-bruta"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-pronostico-ub"></span></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Menos: Gastos operativos</td>
+                    <td class="py-2 px-3 whitespace-nowrap"></td>
+                    <td class="py-2 px-3 whitespace-nowrap"></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Gastos fijos</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-gastos-fijos"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap">$ 4700.00</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Gastos variantes</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-gastos-variantes"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-pronostico-gastos"></span></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Utilidad operativa</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-utilidad-operativa"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-pronostico-uo"></span></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Menos: Gastos por intereses</td>
+                    <td class="py-2 px-3 whitespace-nowrap"><span id="valor-gastos-interes"></span></td>
+                    <td class="py-2 px-3 whitespace-nowrap">$ 48785.61</td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Utilidad neta antes de Impuestos</td>
+                    <td class="p-2 whitespace-nowrap font-medium"><span id="valor-utilidad-neta"></span></td>
+                    <td class="p-2 whitespace-nowrap font-medium"><span id="valor-pronostico-un"></span></td>
+                </tr>
+                <tr>
+                    <td class="py-2 px-3 whitespace-nowrap">Menos: Impuestos</td>
+                    <td class="p-2 whitespace-nowrap font-medium"><span id="valor-umi"></span></td>
+                    <td class="p-2 whitespace-nowrap font-medium"><span id="valor-pronostico-umi"></span></td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-5 whitespace-nowrap font-semibold text-gray-200">Utilidad neta despues de Impuestos</td>
+                        <td class="p-2 whitespace-nowrap font-medium text-gray-200"><span id="valor-udi"></span></td>
+                        <td class="p-2 whitespace-nowrap font-medium text-gray-200"><span id="valor-pronostico-udi"></span></td>
+                    </tr>
+                </tbody>
+          </table>
         </div>
     </section>
+      </div>
+      <script src="../scripts/estadoresultado.js" type="module" defer></script>
 
-    <script src="../scripts/activosfijos.js" type="module"></script>
-</body>
+    </body>
 </html>

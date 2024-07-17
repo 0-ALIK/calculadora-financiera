@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
-    <title>Activos Fijos Netos</title>
+    <title>Punto de Equilibrio</title>
 </head>
-<body class="h-screen overflow-hidden">
+<body class="h-screen bg-banner bg-cover ">
     <nav>
         <div class="navbar bg-base-100">
             <div class="flex-1 ">
-                <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+            <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
             </div>
             <div class="">
                 <ul class="menu menu-horizontal px-1 ml-20">
@@ -60,42 +60,47 @@
                 </ul>
             </div>
         </div> 
-    </nav>   
+    </nav>
 
-    <section class="bg-fondo h-full bg-no-repeat bg-cover">
-        <div class="flex flex-col gap-5 p-5 h-full">
-            <div class="flex items-center gap-2">
-                <h1 class="text-5xl font-bold p-3 text-gray-200">Activos fijos Netos</h1>
-                <button onclick="cambiarDatos()" class="btn btn-xs btn-outline btn-primary btn-calcular-anos">
-                    <p class="text-xs">Cambiar datos</p>
-                </button>
+    <div class="mt-5 ">
+        <h1 class="text-5xl p-5 font-bold text-blue-300">Punto de Equilibrio</h1>
+    </div>
+
+    <section class="bg-fondo flex items-center justify-center bg-no-repeat bg-cover">
+        <div class="flex flex-col px-10 py-6 w-fit justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-full">
+
+            <div class="flex flex-col items-center justify-center overflow-hidden gap-4 p-2 ">
+                <section class="flex justify-center">
+                    <div class="p-4 bg-blue-300/10 rounded-xl border-2 border-neutral-content/10">
+                        <h2 class="text-xl font-semibold text-gray-100">Indicadores Mensuales</h2>
+                        <p class="text-lg font-medium text-gray-300">Punto de Equilibrio (Cantidad): <span id="punto-equilibrio-cantidad"></span></p>
+                        <p class="text-lg font-medium text-gray-300">Punto de Equilibrio (Ingresos): <span id="punto-equilibrio-ingresos"></span></p>
+                    </div>
+                </section>
+
+                <section class="flex justify-center items-center overflow-hidden ">
+                    <table class=" overflow-auto max-h-72 tabla-productos bg-base-300/80 table text-sm h-full table-pin-rows table-pin-cols ">
+                        <thead>
+                            <tr class="text-white/90 text-sm text-center h-full overflow-hidden">
+                                <th class="rounded-l-lg gap-2 p-2">Código</th>
+                                <th class="gap-2 p-2">Descripción</th>
+                                <th class="gap-2 p-2">Costo</th>
+                                <th class="gap-2 p-2">Precio</th>
+                                <th class="gap-2 p-2">Cantidad</th>
+                                <th class="gap-2 p-2">Mezcla en Ventas (%)</th>
+                                <th class="gap-2 p-2">Punto E. (Cantidad)</th>
+                                <th class="rounded-r-lg gap-2 p-2">Punto E. (Ingresos)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </section>
+
+
             </div>
-
-            <section class="flex flex-col justify-center bg-base-300/60 h-80 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg">
-                <div class="flex gap-5 p-4 justify-center py-2">
-                    <div class="flex flex-col gap-6 p-5">
-                        <div class="lista-activos flex flex-col px-10 gap-4"></div>
-                        <div class="flex gap-2">
-                            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Activo</p>
-                                <input type="text" class="grow pl-2 input-descripcion-activo" placeholder="Añadir nuevo activo" />
-                            </label>
-                            <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                                <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Precio</p>
-                                <input type="text" class="grow pl-2 input-costo-activo" placeholder="$$$" />
-                                <button onclick="agregarActivo()" class="btn  btn-secondary text-gray-200 btn-sm btn-agregar-activo">Añadir</button>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="flex flex-col justify-evenly bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
-                        <h2 class="text-4xl font-bold text-secondary">Valor total de los activos</h2>
-                        <p class="text-4xl font-bold text-gray-100 pl-8 valor-total">0</p>
-                    </div>
-                </div>
-            </section>
-        </div>
+            </div>
     </section>
-
-    <script src="../scripts/activosfijos.js" type="module"></script>
+    <script src="../scripts/puntoequilibrio.js" type="module"></script>
 </body>
 </html>

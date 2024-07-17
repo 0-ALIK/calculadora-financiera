@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../style.css">
+        
+        <title>Balance General</title>
+        <nav>
+            <div class="navbar bg-base-100">
+                <div class="flex-1 ">
+                <a class="btn btn-ghost text-xl" href="./index.html">ProyAF</a>
+                </div>
+                <div class="">
+                    <ul class="menu menu-horizontal px-1 ml-20">
+                        <div class="dropdown dropdown-bottom">
+                            <div tabindex="0" role="button" class="btn btn-ghost">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-plus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
+                            </div>
+                            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                                <li><a href="http://localhost:5173/pages/crearProducto.html">Crear producto</a></li>
+                                <li><a href="http://localhost:5173/pages/crearVenta.html">Crear entrada (venta)</a></li>
+                                <li><a href="http://localhost:5173/pages/crearCompra.html">Crear salida (compra)</a></li>
+                            </ul>
+                        </div>
+                        <li class="tooltip tooltip-bottom" data-tip="Inicio">
+                            <a href="http://localhost:5173/index.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"/></svg></a>
+                        </li>                     
+                        <li class="tooltip tooltip-bottom" data-tip="Calculadora financiera">
+                            <a href="http://localhost:5173/pages/calculadorafinanciera.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-calculator"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 3m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v1a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z" /><path d="M8 14l0 .01" /><path d="M12 14l0 .01" /><path d="M16 14l0 .01" /><path d="M8 17l0 .01" /><path d="M12 17l0 .01" /><path d="M16 17l0 .01" /></svg></a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom" data-tip="Activos fijos">
+                            <a href="http://localhost:5173/pages/activosfijos.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-arcs-3"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M7 12a5 5 0 1 0 5 -5" /><path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957" /></svg></a>
+                        </li>
+                        <li class="tooltip tooltip-bottom" data-tip="Balance general">
+                            <a href="http://localhost:5173/pages/balancegeneral.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-abacus"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 3v18" /><path d="M19 21v-18" /><path d="M5 7h14" /><path d="M5 15h14" /><path d="M8 13v4" /><path d="M11 13v4" /><path d="M16 13v4" /><path d="M14 5v4" /><path d="M11 5v4" /><path d="M8 5v4" /><path d="M3 21h18" /></svg></a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom" data-tip="Estado de resultado">
+                            <a href="http://localhost:5173/pages/estadoresultado.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-article"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 8h10" /><path d="M7 12h10" /><path d="M7 16h10" /></svg></a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom" data-tip="Razones financieras">
+                            <a href="http://localhost:5173/pages/razonesFinancieras.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-chart-bar"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 13a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M15 9a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v10a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M9 5a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z" /><path d="M4 20h14" /></svg></a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom" data-tip="Punto de equilibrio">
+                            <a href="http://localhost:5173/pages/puntoequilibrio.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-timeline"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 16l6 -7l5 5l5 -6" /><path d="M15 14m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M10 9m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M4 16m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M20 8m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom" data-tip="Presupuesto de caja">
+                            <a href="http://localhost:5173/pages/presupuesto.html"><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-file-analytics"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 17l0 -5" /><path d="M12 17l0 -1" /><path d="M15 17l0 -3" /></svg></a>
+                        </li>
+
+                        <li class="tooltip tooltip-bottom" data-tip="Entradas y salidas">
+                            <a href="http://localhost:5173/pages/entradasSalidas.html"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrows-in-out"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7v8a1 1 0 0 0 1 1h8" /><path d="M12 10l2 -2l-2 -2" /><path d="M16 11h-2a1 1 0 0 0 -1 1v2" /><path d="M8 11v2a1 1 0 0 0 1 1h2" /><path d="M12 14l2 2l-2 2" /><path d="M14 13h2a1 1 0 0 0 1 -1v-2" /></svg></a>
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </nav>
+    </head>
+
+    <body class="h-screen w-full overflow-hidden"> 
+        <div class="mt-5 ">
+            <h1 class="text-5xl p-5 font-bold text-blue-300">Balance General</h1>
+        </div>        <div class="flex justify-center gap-4 bg-fondo items-center bg-no-repeat bg-cover">
+            
+            <section class="flex px-8 w-fit justify-center bg-base-300/60 backdrop-blur-md rounded-xl border border-gray-700 drop-shadow-lg overflow-auto h-full">
+                    
+                <div class="p-2 rounded-lg shadow-lg">
+                <h2 class="text-lg text-white font-semibold mb-2">Activos</h2>
+                
+                    <table class="table bg-base-300/80 table-pin-rows table-pin-cols">
+                        <thead class="">
+                        <tr>
+                            <th class="p-2 text-left font-semibold text-white uppercase tracking-wider rounded-l-lg ">Descripción</th>
+                            <th class="p-2 text-left font-semibold text-white uppercase tracking-wider">2022</th>
+                            <th class="p-2 text-left font-semibold text-white uppercase tracking-wider rounded-r-lg  ">Proforma 2023</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="">
+                        <tr>
+                            <td class="p-2 font-medium text-blue-200 whitespace">Activos corrientes</td>
+                            <td class="p-2 whitespace-nowrap"></td>
+                            <td class="p-2 whitespace-nowrap"></td>
+                        <tr>
+                            <td class="py-2 px-3 whitespace-nowrap">Efectivo</td>
+                            <td class="py-2 px-3 whitespace-nowrap">$ 15000</td>
+                            <td class="py-2 px-3 whitespace-nowrap">$ 15000</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-3 whitespace-nowrap">Inventario</td>
+                            <td class="py-2 px-3 whitespace-nowrap"><span id="valor-inventario"></span></td>
+                            <td class="py-2 px-3 whitespace-nowrap">$ 1032692.00</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-3 whitespace-nowrap">Cuentas por cobrar</td>
+                            <td class="py-2 px-3 whitespace-nowrap"><span id="valor-cuentas-por-cobrar"></span></td>
+                            <td class="py-2 px-3 whitespace-nowrap"><span id="valor-cxcp"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-5 whitespace-nowrap font-semibold text-gray-200">Total de activos corrientes</td>
+                            <td class="p-2 whitespace-nowrap font-medium text-gray-200"><span id="valor-activos-corrientes"></span></td>
+                            <td class="p-2 whitespace-nowrap font-medium text-gray-200"><span id="valor-acp"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 font-medium text-blue-200 whitespace-nowrap">Activos fijos</td>
+                            <td class="px-6 py-4 whitespace-nowrap"></td>
+                            <td class="px-6 py-4 whitespace-nowrap"></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 whitespace-nowrap">Mobiliario</td>
+                            <td class="p-2 whitespace-nowrap"><span id="valor-mobiliario"></span></td>
+                            <td class="p-2 whitespace-nowrap"><span id="valor-mobiliario-proforma"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 whitespace-nowrap">Transporte</td>
+                            <td class="p-2 whitespace-nowrap"><span id="valor-transporte"></span></td>
+                            <td class="p-2 whitespace-nowrap"><span id="valor-transporte-proforma"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 whitespace-nowrap">Equipos de oficina</td>
+                            <td class="p-2 whitespace-nowrap"><span id="valor-equipo"></span></td>
+                            <td class="p-2 whitespace-nowrap"><span id="valor-equipo-proforma"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 whitespace-nowrap">Depreciación acumulada</td>
+                            <td class="p-2 whitespace-nowrap">$ 28000</td>
+                            <td class="p-2 whitespace-nowrap">$ 24000</td>
+                        </tr>
+                        <tr>
+                            <td class="py-2 px-5 whitespace-nowrap font-semibold text-gray-200">Total activos fijos netos</td>
+                            <td class="p-2 whitespace-nowrap font-medium text-gray-200"><span id="valor-activos-fijos"></span></td>
+                            <td class="p-2 whitespace-nowrap font-medium text-gray-200"><span id="valor-afnp"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold">Total activo</td>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-activos"></span></td>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-activos-proforma"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div  class="h-4">
+                    <div class="p-2 rounded-lg shadow-lg mb-4">
+                        <h2 class="text-lg text-white font-semibold mb-2">Pasivos</h2>
+                        <table class="table bg-base-300/80 table-pin-rows table-pin-cols">
+                            <thead class="">
+                                <tr>
+                                    <th class="p-2 text-left text-xs font-semibold text-white uppercase tracking-wider rounded-l-lg">Descripción</th>
+                                    <th class="p-2 text-left text-xs font-semibold text-white uppercase tracking-wider">2022</th>
+                                    <th class="p-2 text-left text-xs font-semibold text-white uppercase tracking-wider rounded-r-lg">Proforma 2023</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="">
+                            <tr>
+                                <td class="p-2 font-medium whitespace">Pasivo corrientes</td>
+                                <td class="p-2  whitespace-nowrap"></td>
+                                <td class="p-2  whitespace-nowrap"></td>
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap">Cuentas por pagar</td>
+                                <td class="py-2 px-3 whitespace-nowrap"><span id="valor-cuentas-por-pagar"></span></td>
+                                <td class="py-2 px-3 whitespace-nowrap"><span id="valor-cxpp"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap">Deudas a corto plazo</td>
+                                <td class="py-2 px-3 whitespace-nowrap">$ 5,823.72</td>
+                                <td class="py-2 px-3 whitespace-nowrap">$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap">Impuestos</td>
+                                <td class="py-2 px-3 whitespace-nowrap"><span id="valor-impuestos"></span></td>
+                                <td class="py-2 px-3 whitespace-nowrap">$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap font-semibold text-gray-200">Total pasivos corrientes</td>
+                                <td class="py-2 px-3 whitespace-nowrap font-medium text-gray-200"><span id="valor-pasivos-corrientes"></span></td>
+                                <td class="py-2 px-3 whitespace-nowrap font-medium text-gray-200">$</td>
+                            </tr>
+                            <tr>
+                                <td class="p-2 font-medium text-blue-200 whitespace">Pasivo fijos</td>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                                <td class="px-6 py-4 whitespace-nowrap"></td>
+                            <tr>
+                                <tr>
+                                    <td class="py-2 px-3 whitespace-nowrap">Deudas a largo plazo</td>
+                                    <td class="py-2 px-3 whitespace-nowrap">$ 30859.43</td>
+                                    <td class="py-2 px-3 whitespace-nowrap">$</td>
+                                    </tr>
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap">Total pasivos fijos</td>
+                                <td class="py-2 px-3 whitespace-nowrap">$ 30859.43</td>
+                                <td class="py-2 px-3 whitespace-nowrap">$</td>
+                                </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-semibold text-gray-200">Total pasivo</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-200"><span id="valor-total-pasivos"></span></td>
+                                <td class="px-6 py-4 whitespace-nowrap font-medium text-gray-200">$</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="px-2 py-24 rounded-lg shadow-lg mb-4">
+                        <h2 class="text-lg text-white font-semibold mb-1">Capital</h2>
+                        <table class="table bg-base-300/80 table-pin-rows table-pin-cols">
+                            <thead class="">
+                                <tr>
+                                    <th class="p-2 text-left text-xs font-semibold text-white uppercase tracking-wider rounded-l-lg">Descripción</th>
+                                    <th class="p-2 text-left text-xs font-semibold text-white uppercase tracking-wider">2022</th>
+                                    <th class="p-2 text-left text-xs font-semibold text-white uppercase tracking-wider rounded-r-lg">Proforma 2023</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="">
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap">Inversión inicial</td>
+                                <td class="py-2 px-3 whitespace-nowrap"><span id="valor-inversion-i"></span></td>
+                                <td class="py-2 px-3 whitespace-nowrap">$</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 whitespace-nowrap">Pérdidas acumuladas</td>
+                                <td class="py-2 px-3 whitespace-nowrap">$ 6038.21</td>
+                                <td class="py-2 px-3 whitespace-nowrap">$</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap font-bold">Total capital</td>
+                                <td class="px-6 py-4 whitespace-nowrap font-bold"><span id="valor-total-capital"></span></td>
+                                <td class="px-6 py-4 whitespace-nowrap font-bold">$</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="../scripts/balancegeneral.js" type="module" defer></script>
+
+    </body>
+</html>
