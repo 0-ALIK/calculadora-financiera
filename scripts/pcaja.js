@@ -7,18 +7,19 @@ function calculate() {
 
   // Obtener los valores de los campos de entrada
   let p = Number(document.getElementById("principal").value);
+  let a = Number(document.getElementById("agu").value);
+  let e = Number(document.getElementById("ele").value);
+  let i = Number(document.getElementById("int").value);
+  let s = Number(document.getElementById("sal").value);
   let r = Number(document.getElementById("rent").value);
-  let t = Number(document.getElementById("nom").value);
-  let s = Number(document.getElementById("seg").value);
-  let im = Number(document.getElementById("im").value);
-  let inte = Number(document.getElementById("inte").value);
-  let c = Number(document.getElementById("car").value);
-  let serv = Number(document.getElementById("ser").value);
-  let i = Number(document.getElementById("inv").value);
+  let pu = Number(document.getElementById("publi").value);
+  let tra = Number(document.getElementById("trans").value);
+ 
+
   
   // Calcular el monto total y el total neto
   let amount = p;
-  let monto = i + r + t + s + im + inte + c + serv;
+  let monto = a + e + i + s + r + pu + tra;
   let ntotal = p - monto;
 
   // Mostrar los resultados en el HTML
