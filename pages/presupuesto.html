@@ -27,6 +27,7 @@
 
 
 
+<<<<<<< Updated upstream
 
       <h1 class="text-5xl font-bold p-3 text-blue-300">Presupuesto de Caja</h1>
 
@@ -50,6 +51,26 @@
                     <input type="text" class="grow pl-2 input-precio-activo" id="inv" placeholder="$" />
                     
                 </label>
+=======
+            <section class="flex gap-4 p-4 justify-center">
+                <div class="flex flex-col gap-6 bg-blue-300/10 border-neutral-content/10 border-2 rounded-xl p-5">
+                <div class="flex gap-2">
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Ingresos</p>
+                        <input type="text" class="grow pl-2 input-nombre-activo" id="principal"     placeholder="Añadir nuevo presupuesto " />
+                    </label>
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Transporte</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" id="trans" placeholder="$" />
+                        
+                    </label>
+                    
+                    <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                        <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Agua</p>
+                        <input type="text" class="grow pl-2 input-precio-activo" id="agua" placeholder="$" />
+                    </label>
+            </div>
+>>>>>>> Stashed changes
 
                 
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
@@ -64,15 +85,16 @@
             </div>
             <div class="flex gap-2">
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Nómina</p>
-                    <input type="text" class="grow pl-2 input-nombre-activo" id="nom"     placeholder="$ " />
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Electricidad</p>
+                    <input type="text" class="grow pl-2 input-nombre-activo" id="elc"     placeholder="$ " />
                 </label>
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
-                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Seguro</p>
-                    <input type="text" class="grow pl-2 input-precio-activo" id="seg" placeholder="$" />
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Internet</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="inter" placeholder="$" />
                     
                 </label>
 
+<<<<<<< Updated upstream
                 
                 <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
                     <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Impuestos</p>
@@ -82,6 +104,41 @@
 
             
                 
+=======
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Salarios</p>
+                    <input type="text" class="grow pl-2 input-nombre-activo" id="sal"     placeholder="$" />
+                </label>
+            </div>
+            
+            <div class="flex gap-2">
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Renta</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="ren" placeholder="$" />
+                </label>
+                
+                <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
+                    <p class="border-r-2 border-primary/10 pr-2 text-blue-300">Publicidad</p>
+                    <input type="text" class="grow pl-2 input-precio-activo" id="pu" placeholder="$" />
+                </label> 
+
+
+                
+            </section>
+            
+            
+
+            <div class="flex flex-col items-center px-8 gap-4 ">
+                <button class="btn text-3xl" id="calculate-btn">Calcular</button>
+                
+            </div>
+ <br>
+        <div class="flex  items-center  bg-blue-300/10 border-neutral-content/10 border-2 p-6 rounded-xl">
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result">0</p>
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result2">0</p>
+            <p class="text-3xl font-bold text-gray-200 pl-8 valor-total text-center" id="result3">0</p>
+>>>>>>> Stashed changes
         </div>
         <div class="flex gap-2">
             <label class="input input-bordered bg input-primary input-md bg-transparent/30 flex items-center gap-1">
