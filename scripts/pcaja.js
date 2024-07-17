@@ -1,3 +1,5 @@
+import { guardarEnLocalStorage } from "./funciones_helpers";
+
  export function calculate() {
   // Variables 
   let calculateBtn = document.getElementById("calculate-btn");
@@ -25,6 +27,8 @@
   result.innerHTML = `<div>Total de Caja: <span>${amount.toFixed(2)}$</span></div>`;
   result2.innerHTML = `<div>Total de Gastos: <span>${monto.toFixed(2)}$</span></div>`;
   result3.innerHTML = `<div>Total neto: <span>${ntotal.toFixed(2)}$</span></div>`;
+
+  guardarEnLocalStorage("money", ntotal);
 }
 
 // Añadir eventos para llamar a la función calculate

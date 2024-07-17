@@ -46,7 +46,11 @@ export const  valorTotalActivosNetos = () => {
         valorTotal += activo.costo - ((activo.costo / 10) * anosAcumulados);
     });
     return valorTotal;
+
+    guardarEnLocalStorage('afn', valorTotal);
 }
+
+
 // Llama a la función para actualizar la UI al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
     actualizarUI();

@@ -1,4 +1,5 @@
 import ApexCharts from "apexcharts";
+import { guardarEnLocalStorage } from "./funciones_helpers";
 
 const form = document.getElementById("id_form");
 
@@ -100,4 +101,16 @@ function tablaAmortizacion(monto_prestamo, tasa_interes, plazo_prestamo, frec_pa
       var chart = new ApexCharts(document.querySelector("#chart"), options);
       
       chart.render();
+
+      // Guardar en localStorage
+      guardarEnLocalStorage("capital_c", capital);
+      guardarEnLocalStorage("saldo_c", saldo);
+      guardarEnLocalStorage("intereses_c", intereses);
+      guardarEnLocalStorage("periodos_c", periodos);
+      guardarEnLocalStorage("pago_periodico_c", pago_periodico);
+
+      return {capital, saldos, intereses, periodos};
+
 }
+
+export { tablaAmortizacion };

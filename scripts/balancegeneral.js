@@ -3,7 +3,8 @@ import { calcularPronosticoVentas } from "./estadoresultado";
 import { calcularPronosticoUMI } from "./estadoresultado";
 import { calcularPronosticoUDI } from "./estadoresultado";
 import { calcularUDI } from "./estadoresultado";
-import { calculate } from "./pcaja";
+//import { tablaAmortizacion } from "./calculadorfinanciera";
+
 
 const costos_operaciondata = obtenerLocalStorage('costos_operacion');
 const comprasdata = obtenerLocalStorage('compras');
@@ -14,13 +15,11 @@ const activosdata = obtenerLocalStorage('activos');
     //Activo
 
     export const calcularEfectivo = () => {
-        let efectivo = 61312.00;
-        let efectivoT = 0;
+        let efectivo = 0;
 
-        efectivoT = calculate('ntotal');
-        console.log(calculate());
+        efectivo = obtenerLocalStorage('money');
 
-        return efectivoT;
+        return efectivo;
     }
 
     export const calcularInventario = () => {
@@ -68,14 +67,10 @@ const activosdata = obtenerLocalStorage('activos');
     };
 
 
-    export const CalcularActivosCorrientes = () => {
+    export const CalcularActivosCorrientes =() => {
         let totalActivosCorrientes = 0;
-        let efectivo = 61312;
 
-        const iv = calcularInventario();
-        const cpc = CalcularCuentasPorCobrar();
-
-        totalActivosCorrientes = iv + cpc + efectivo;
+        totalActivosCorrientes = calcularEfectivo() + calcularInventario() + CalcularCuentasPorCobrar();;
     
         return totalActivosCorrientes;
     };
@@ -162,19 +157,13 @@ const activosdata = obtenerLocalStorage('activos');
 
     export const CalcularActivosFijos = () => {
         let totalAFN = 0;
-        let anosAcumulados = 3;
-
-        activosdata.forEach(activosdata => {
-            if (activosdata && activosdata.costo) {	
-                totalAFN += activosdata.costo - ((activosdata.costo / 10) * anosAcumulados);
-            }
-            
-        });
+        
+        totalAFN = obtenerLocalStorage('afn');
 
         return totalAFN;
     }
 
-    export const CalcularTotalActivos = () => {
+    export function CalcularTotalActivos()  {
         let totalActivos = 0;
 
         totalActivos = CalcularActivosCorrientes() + CalcularActivosFijos();
@@ -206,6 +195,14 @@ const activosdata = obtenerLocalStorage('activos');
         return cuentas_por_pagar;
     };
 
+    export const calcularDeudasCortoPlazo = () => {
+        let deudasCortoPlazo = 0;
+
+        deudasCortoPlazo = obtenerLocalStorage('pago_periodico_c') * 12;
+
+        return deudasCortoPlazo
+        
+    }
     export const calcularImpuestos = () => {
         let impuestos = 0;
         let i = 0.25;
@@ -215,12 +212,34 @@ const activosdata = obtenerLocalStorage('activos');
         return impuestos;
     }
 
+    export const calcularDeudasLargoPlazo = () => {
+        let deudasLargoPlazo = 0;
+        let saldo = 0;
+        let periodo = 0;
+        let n = 36;
+
+        saldo = obtenerLocalStorage('saldo_c');
+        periodo = obtenerLocalStorage('periodos_c');
+
+        if(periodo == n){
+            deudasLargoPlazo = saldo;
+        }
+
+        return deudasLargoPlazo;
+    }
+
+    export const calcularTotalPasivoFijos = () => {
+        let totalPasivoFijos = 0;
+
+        totalPasivoFijos = calcularDeudasLargoPlazo();
+
+        return totalPasivoFijos;
+    }
+
     export const calcularPasivosCorrientesT = () => {
         let totalPasivosCorrientes = 0;
 
-        const cp = CalcularCuentasPorPagar();
-
-        totalPasivosCorrientes = cp + calcularImpuestos() + 5823.72;
+        totalPasivosCorrientes = CalcularCuentasPorPagar() + calcularImpuestos() + calcularDeudasCortoPlazo();
 
         return totalPasivosCorrientes;
     }
@@ -290,9 +309,9 @@ const activosdata = obtenerLocalStorage('activos');
 
     export const calcularACP = () => {
         let acp = 0;
-        let efectivo = 61312;
 
-        acp = efectivo + 2146876.65 + calcularCxCp();
+
+        acp = calcularEfectivoP() + calcularInventario() + calcularCxCp();
 
         return acp
     }
@@ -346,14 +365,8 @@ const activosdata = obtenerLocalStorage('activos');
 
     export const calcularAFNP = () => {
         let totalAFNP = 0;
-        let anosAcumulados = 4;
 
-        activosdata.forEach(activosdata => {
-            if (activosdata && activosdata.costo) {	
-                totalAFNP += activosdata.costo - ((activosdata.costo / 10) * anosAcumulados);
-            }
-            
-        });
+        totalAFNP = obtenerLocalStorage('afn') - 4000;
 
         return totalAFNP;
     }
@@ -380,6 +393,14 @@ const activosdata = obtenerLocalStorage('activos');
 
     }
 
+    export const calcularDeudasCortoPP = () => {
+        let deudasCortoPP = 0;
+
+        deudasCortoPP = calcularDeudasCortoPlazo();
+        
+        return deudasCortoPP;
+    }
+
     export const calcularImpuestoP = () => {
         let impuestoP = 0;
         let i = 0.25;
@@ -392,7 +413,7 @@ const activosdata = obtenerLocalStorage('activos');
     export const calcularTotalPCP = () => {
         let totalPCP = 0;
 
-        totalPCP = calcularCxPp() + calcularImpuestoP() + 5823.72;
+        totalPCP = calcularCxPp() + calcularImpuestoP() + calcularDeudasCortoPP();
 
         return totalPCP
     }
@@ -442,7 +463,7 @@ const activosdata = obtenerLocalStorage('activos');
 
 // Función para mostrar los valores en el HTML
 const mostrarValoresEnHTML = () => {
-    const efectivoT = calcularEfectivo();
+    const efectivo = calcularEfectivo();
     const inventario = calcularInventario();
     const cuentas_por_cobrar = CalcularCuentasPorCobrar();
     const total_activos_corrientes = CalcularActivosCorrientes();
@@ -453,13 +474,17 @@ const mostrarValoresEnHTML = () => {
     const total_activos_fijos = CalcularActivosFijos();
     const total_activos = CalcularTotalActivos();
     const cuentas_por_pagar = CalcularCuentasPorPagar();
+    const deudas_corto_plazo = calcularDeudasCortoPlazo(); // Deuda corto plazo
     const impuestos = calcularImpuestos();
     const pasivos_corrientes = calcularPasivosCorrientesT();
+    const deudas_largo_plazo = calcularDeudasLargoPlazo();
     const total_pasivos = calcularTotalPasivos();
     const perdidas_acu = calcularPA();
     const total_capital = calcularTotalCapital();
     const finan = calcularFinan();
     const capitalxFinan = calcularCapitalxFinan();
+    //plus
+    const totalPasivoFijos = calcularTotalPasivoFijos();
 
     //Proforma
     const efectivoP = calcularEfectivoP();
@@ -473,8 +498,10 @@ const mostrarValoresEnHTML = () => {
     const afnp = calcularAFNP();
     const total_activos_proforma = calcularTotalActivosP();
     const cxpp = calcularCxPp();
+    const deudasCortoPP = calcularDeudasCortoPP();
     const impuestoP = calcularImpuestoP();
     const total_proforma = calcularTotalPCP();
+  
     const total_pasivos_proforma = calcularTotalPasicoP();
     const perdidas_proforma = calcularPronosticoPA();
     const capital_proforma = calcularCapitalP();
@@ -494,13 +521,17 @@ const mostrarValoresEnHTML = () => {
     const elementoActivosFijos = document.getElementById('valor-activos-fijos');
     const elementoTotalActivos = document.getElementById('valor-total-activos');
     const elementoCuentasPorPagar = document.getElementById('valor-cuentas-por-pagar');
+    const elementoDeudasCortoPlazo = document.getElementById('valor-deudas-corto-plazo'); //DEUDA CORTO PLAZO
     const elementoImpuestos = document.getElementById('valor-impuestos');
     const elementoPasivosCorrientes = document.getElementById('valor-pasivos-corrientes');
+    const elementoDeudasLargoPlazo = document.getElementById('valor-deudas-largo-plazo');
     const elementoTotalPasivos = document.getElementById('valor-total-pasivos');
     const elementoPerdidasAcumuladas = document.getElementById('valor-perdidas-acumuladas');
     const elementoTotalCapital = document.getElementById('valor-total-capital');
     const elementoFinan = document.getElementById('valor-finan');
     const elementoCapitalxFinan = document.getElementById('valor-capital_Finan');
+    //plus
+    const elementoTotalPasivoFijos = document.getElementById('valor-total-pasivo-fijos');
 
     //Proforma
     const elementoEfectivoP = document.getElementById('valor-efectivoP');
@@ -514,6 +545,7 @@ const mostrarValoresEnHTML = () => {
     const elementoAfnp = document.getElementById('valor-afnp');
     const elementoTotalActivos_proforma = document.getElementById('valor-total-activos-proforma');
     const elementoCxpp = document.getElementById('valor-cxpp');
+    const elementoDeudasCortoPP = document.getElementById('valor-deudas-corto-pp');
     const elementoImpuestoP = document.getElementById('valor-impuestoP');
     const elementoTotalProforma = document.getElementById('valor-total-pcp');
     const elementoTotalPasivos_proforma = document.getElementById('valor-total-pp');
@@ -524,27 +556,31 @@ const mostrarValoresEnHTML = () => {
 
     // Mostrar los valores en el HTML
     
-    elementoEfectivo.textContent = `$ ${efectivoT.toFixed(2)}`;
+    elementoEfectivo.textContent = `$ ${efectivo}`;
     elementoInventario.textContent = `$ ${inventario.toFixed(2)}`;
     elementoCuentasPorCobrar.textContent = `$ ${cuentas_por_cobrar.toFixed(2)}`;
-    elementoActivosCorrientes.textContent = `$ ${total_activos_corrientes.toFixed(2)}`;
+    elementoActivosCorrientes.textContent = `$ ${Number(total_activos_corrientes).toFixed(2)}`;
     elementoMobiliario.textContent = `$ ${mobiliario.toFixed(2)}`;
     elementoTransporte.textContent = `$ ${transporte.toFixed(2)}`;
     elementoEquipo.textContent = `$ ${equipo.toFixed(2)}`;
     elementoDepA.textContent = `$ ${depA.toFixed(2)}`;
-    elementoActivosFijos.textContent = `$ ${total_activos_fijos.toFixed(2)}`;
-    elementoTotalActivos.textContent = `$ ${total_activos.toFixed(2)}`;
+    elementoActivosFijos.textContent = `$ ${total_activos_fijos}`;
+    elementoTotalActivos.textContent = `$ ${Number(total_activos).toFixed(2)}`;
     elementoCuentasPorPagar.textContent = `$ ${cuentas_por_pagar.toFixed(2)}`;
+    elementoDeudasCortoPlazo.textContent = `$ ${deudas_corto_plazo.toFixed(2)}`; //DEUDA CORTO PLAZO
     elementoImpuestos.textContent = `$ ${impuestos.toFixed(2)}`;
     elementoPasivosCorrientes.textContent = `$ ${pasivos_corrientes.toFixed(2)}`;
+    elementoDeudasLargoPlazo.textContent = `$ ${deudas_largo_plazo}`; //DEUDA LARGO PLAZO
     elementoTotalPasivos.textContent = `$ ${total_pasivos.toFixed(2)}`;
     elementoPerdidasAcumuladas.textContent = `$ ${perdidas_acu.toFixed(2)}`;
     elementoTotalCapital.textContent = `$ ${total_capital.toFixed(2)}`;
     elementoFinan.textContent = `$ ${finan.toFixed(2)}`;
     elementoCapitalxFinan.textContent = `$ ${capitalxFinan.toFixed(2)}`;
+    //plus
+    elementoTotalPasivoFijos.textContent = `$ ${totalPasivoFijos}`;
 
     //Proforma
-    elementoEfectivoP.textContent = `$ ${efectivoP.toFixed(2)}`;
+    elementoEfectivoP.textContent = `$ ${efectivoP}`;
     elementoCxCp.textContent = `$ ${cxcp.toFixed(2)}`;
     elementoAcp.textContent = `$ ${acp.toFixed(2)}`;
     elementoInventario_proforma.textContent = `$ ${inventario_proforma.toFixed(2)}`;
@@ -552,9 +588,10 @@ const mostrarValoresEnHTML = () => {
     elementoTransporte_proforma.textContent = `$ ${transporte_proforma.toFixed(2)}`;
     elementoEquipo_proforma.textContent = `$ ${equipo_proforma.toFixed(2)}`;
     elementoDepA_proforma.textContent = `$ ${depA_proforma.toFixed(2)}`;
-    elementoAfnp.textContent = `$ ${afnp.toFixed(2)}`;
+    elementoAfnp.textContent = `$ ${afnp}`;
     elementoTotalActivos_proforma.textContent = `$ ${total_activos_proforma.toFixed(2)}`;
     elementoCxpp.textContent = `$ ${cxpp.toFixed(2)}`;
+    elementoDeudasCortoPP.textContent = `$ ${deudasCortoPP.toFixed(2)}`;
     elementoImpuestoP.textContent = `$ ${impuestoP.toFixed(2)}`;
     elementoTotalProforma.textContent = `$ ${total_proforma.toFixed(2)}`;
     elementoTotalPasivos_proforma.textContent = `$ ${total_pasivos_proforma.toFixed(2)}`;
