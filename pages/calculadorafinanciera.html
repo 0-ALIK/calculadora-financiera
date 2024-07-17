@@ -41,13 +41,13 @@
         </section>
         <form class="  grid gap-6" id="id_form" action="" method="post">
           <label class="bg-[#374151] input input-bordered flex items-center gap-2">
-              <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo">
+              <input class="grow" type="number" name="name_monto_prestamo" id="id_monto_prestamo" min="1" placeholder="Monto del Prestamo $">
           </label>
           <label class="bg-[#374151] input input-bordered flex items-center gap-2">
-              <input class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes">
+              <input type="number" class="grow" name="name_tasa_interes" id="id_tasa_interes" placeholder="Tasa de Interes %">
           </label>
           <label class="bg-[#374151] input input-bordered flex items-center gap-2">
-              <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo de Pago">
+              <input class="grow" type="number" name="name_plazo_prestamo" id="id_plazo_prestamo" min="1" placeholder="Plazo de Pago en Años">
           </label>
           <div class="flex justify-between">
             <select class="bg-[#374151] rounded-md p-2" name="name_frec_pago" id="id_frec_pago">
@@ -59,7 +59,12 @@
             </select>
             <button class="text-white bg-[#5045E5] rounded-md w-64" type="submit">Calcular</button>
           </div>
-          
+          <section id="id_card" class="hidden bg-[#374151] shadow-md rounded-lg p-6 max-w-sm w-full">
+            <h1 class="text-2xl font-bold mb-4">Prestamo</h1>
+            <p class="text-lg  mb-2" id="id_pago_Mes_pretamo"></p>
+            <p class="text-lg  mb-2" id="id_total_pretamo"></p>
+            <p class="text-lg " id="id_total_interes"></p>
+          </section>
       </form>
       </div>
         
@@ -68,7 +73,6 @@
             
           </div>
         </div>
-        
     </div>
     
     <div class="collapse justify-center collapse-arrow">

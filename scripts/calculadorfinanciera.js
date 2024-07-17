@@ -54,7 +54,12 @@ function tablaAmortizacion(monto_prestamo, tasa_interes, plazo_prestamo, frec_pa
             <td>${saldo.toFixed(2)}</td>
             </tr>
             `);
+        document.getElementById("id_total_pretamo").innerHTML = (`Prestamo a Pagar: ${(suma + monto_prestamo).toFixed(2)}`);
+        document.getElementById("id_total_interes").innerHTML = (`Interes total: ${(suma).toFixed(2)}`);
+        document.getElementById("id_pago_Mes_pretamo").innerHTML = (`Pago por periodo: ${pago_periodico.toFixed(2)}`);
+        document.getElementById("id_card").classList.remove("hidden");
     }
+    console.log(suma + monto_prestamo)
     var options = {
         chart: {
           type: 'line'
